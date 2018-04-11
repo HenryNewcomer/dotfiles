@@ -7,19 +7,21 @@ set t_Co=256
 :let mapleader = " "
 
 " ================================================================
-" REQUIRED VUNDLE - START AREA (beginning)
+" REQUIRED VIM PLUG  - START AREA (beginning)
 " ================================================================
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" Installs Vim Plug if it's not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" Starts Vim Plug
+call plug#begin('~/.vim/vim_plugs')
 
 " ================================================================
-" REQUIRED VUNDLE - START AREA (end)
+" REQUIRED VIM PLUG - START AREA (end)
 " ================================================================
 
 " ====================================== 
@@ -27,32 +29,35 @@ Plugin 'VundleVim/Vundle.vim'
 " General plugins:
 " --------------------------------------
 
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'tpope/vim-surround'
-Plugin 'scrooloose/syntastic'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-repeat'
-"Plugin 'honza/vim-snippets'
-"Plugin 'terryma/vim-multiple-cursors'
-Plugin 'danro/rename.vim'
-Plugin 'editorconfig/editorconfig-vim'
-"Plugin 'Valloric/YouCompleteMe'
-Plugin 'octol/vim-cpp-enhanced-highlight'
+Plug 'scrooloose/nerdtree'
+" Only start loading when first called
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+Plug 'altercation/vim-colors-solarized'
+Plug 'airblade/vim-gitgutter'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-repeat'
+"Plug 'honza/vim-snippets'
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'danro/rename.vim'
+Plug 'editorconfig/editorconfig-vim'
+"Plug 'Valloric/YouCompleteMe'
+Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Fuzzy finder
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plugin 'junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
-"Plugin 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe
 
-Plugin 'terryma/vim-smooth-scroll'
+Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
 noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
@@ -67,48 +72,48 @@ noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 " --------
 " Icons:
 " --------
-" (Not used; glyph glitches with NERDTree)
-"Plugin 'ryanoasis/vim-devicons'
+" (Not used; glyph glitches with current font)
+Plug 'ryanoasis/vim-devicons'
 
 " --------
 " Themes:
 " --------
 
 " Probably my favorite theme
-Plugin 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark'
 
-Plugin 'nightsense/stellarized'
+Plug 'nightsense/stellarized'
 "colorscheme stellarized_dark
 
-Plugin 'skielbasa/vim-material-monokai'
+Plug 'skielbasa/vim-material-monokai'
 "set background=dark
 "set termguicolors
 "colorscheme material-monokai
 
-"Plugin 'altercation/solarized'
+"Plug 'altercation/solarized'
 "syntax enable
 "set background=dark
 "colorscheme solarized
 
-Plugin 'jdkanani/vim-material-theme'
+Plug 'jdkanani/vim-material-theme'
 "syntax enable
 "set background=dark
 "colorscheme material-theme
 
 " Note: Liteline and Airline theme support
-Plugin 'joshdick/onedark.vim'
+Plug 'joshdick/onedark.vim'
 "syntax on
 "colorscheme onedark
 
-Plugin 'mhartington/oceanic-next'
+Plug 'mhartington/oceanic-next'
 "colorscheme OceanicNext
 
-"Plugin 'rakr/vim-one'
+"Plug 'rakr/vim-one'
 "colorscheme one
 "set background=dark
 "let g:airline_theme='one'
 
-Plugin 'marcopaganini/termschool-vim-theme'
+Plug 'marcopaganini/termschool-vim-theme'
 "colorscheme termschool
 
 
@@ -117,23 +122,21 @@ Plugin 'marcopaganini/termschool-vim-theme'
 " (Only have one active at a time!) "
 " --------------------------------- "
 
-"Plugin 'itchyny/lightline.vim'
+"Plug 'itchyny/lightline.vim'
 
-Plugin 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
-Plugin 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline-themes'
 
-
-" ================================================================
-" REQUIRED VUNDLE - END AREA (beginning)
-" ================================================================
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 
 " ================================================================
-" REQUIRED VUNDLE - END AREA (end)
+" REQUIRED VIM PLUG - END AREA (beginning)
+" ================================================================
+
+call plug#end()
+
+" ================================================================
+" REQUIRED VIM PLUG - END AREA (end)
 " ================================================================
 
 "               +++++++++++++++++++++++++++++++++++ 
@@ -179,7 +182,7 @@ let g:elite_mode=1
 
 " ====================================== 
 " --------------------------------------
-" Plugin settings
+" Plug settings
 " --------------------------------------
 
 colorscheme codedark
@@ -263,25 +266,6 @@ nnoremap <Leader>O O
 
 " Inserts a space when in normal mode
 nnoremap <Leader><Leader> i <Esc>
-
-
-" ====================================== 
-" --------------------------------------
-" Extra plugin values:
-" --------------------------------------
-
-" Auto-opens NERDTree in new Vim instance
-"autocmd vimenter * NERDTree
-
-" Lightline
-"let g:lightline = {
-"  \     'active': {
-"  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-"  \         'right': [['lineinfo'], ['percent'], ['fileformat', 'fileencoding']]
-"  \     }
-"  \ }
-
-
 
 " ====================================== 
 " --------------------------------------
