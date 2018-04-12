@@ -8,6 +8,7 @@
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
  ZSH_THEME="agnoster"
+# ZSH_THEME="geometry/geometry"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -62,6 +63,8 @@
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git
+  zsh-autosuggestions
+  zsh-syntax-highlighting
 )
 
  source $ZSH/oh-my-zsh.sh

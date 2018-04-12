@@ -4,6 +4,7 @@
 
 " Important values
 set t_Co=256
+set encoding=UTF-8
 :let mapleader = " "
 
 " ================================================================
@@ -49,13 +50,18 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Fuzzy finder
+" PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
+
+" Shortcut is gc (gcc for a line, gcap for a paragraph)
+Plug 'tpope/vim-commentary'
 
 "Plug 'ctrlpvim/ctrlp.vim'
 "let g:ctrlp_map = '<c-p>'
 "let g:ctrlp_cmd = 'CtrlP'
 "set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe
+
+"Plug 'tpope/vim-obsession'
 
 Plug 'terryma/vim-smooth-scroll'
 noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
@@ -63,6 +69,30 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
+Plug 'Valloric/YouCompleteMe'
+
+Plug 'alvan/vim-closetag'
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+let g:closetag_filenames = '*.html,*.htm'
+" integer value [0|1]
+" This will make the list of non-closing tags case-sensitive
+" (e.g. `<Link>` will be closed while `<link>` won't.)
+let g:closetag_emptyTags_caseSensitive = 1
+" Shortcut for closing tags, default is '>'
+let g:closetag_shortcut = '>'
+" Add > at current position without closing the current tag, default is ''
+let g:closetag_close_shortcut = '<leader>>'
+
+" Indent Guides - thicker/more colorful
+"Plug 'nathanaelkane/vim-indent-guides'
+"let g:indent_guides_enable_on_vim_startup = 1
+
+" Indentline - ASCII themed/more subtle
+" Note that this requires VIM's "conceal" to be enabled (it does this itself)
+Plug 'yggdroot/indentline'
+" Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
+let g:indentLine_char = '¦'
 
 " ====================================== 
 " --------------------------------------
@@ -82,38 +112,45 @@ Plug 'ryanoasis/vim-devicons'
 " Probably my favorite theme
 Plug 'tomasiser/vim-code-dark'
 
-Plug 'nightsense/stellarized'
+" Allows you to preview colors on a working/open file
+" Easy implementation of http://vim.wikia.com/wiki/Switch_color_schemes#Script
+Plug 'felixhummel/setcolors.vim'
+" Changes the shortcuts
+nnoremap <F8> :call NextColor(1)<CR>
+nnoremap <F7> :call NextColor(-1)<CR>
+nnoremap <F6> :call NextColor(0)<CR>
+
+" Large selection of themes
+"Plug 'flazz/vim-colorschemes'
+
+"Plug 'nightsense/stellarized'
 "colorscheme stellarized_dark
 
-Plug 'skielbasa/vim-material-monokai'
-"set background=dark
+"Plug 'skielbasa/vim-material-monokai'
 "set termguicolors
 "colorscheme material-monokai
 
 "Plug 'altercation/solarized'
 "syntax enable
-"set background=dark
 "colorscheme solarized
 
-Plug 'jdkanani/vim-material-theme'
+"Plug 'jdkanani/vim-material-theme'
 "syntax enable
-"set background=dark
 "colorscheme material-theme
 
 " Note: Liteline and Airline theme support
-Plug 'joshdick/onedark.vim'
+"Plug 'joshdick/onedark.vim'
 "syntax on
 "colorscheme onedark
 
-Plug 'mhartington/oceanic-next'
+"Plug 'mhartington/oceanic-next'
 "colorscheme OceanicNext
 
 "Plug 'rakr/vim-one'
 "colorscheme one
-"set background=dark
 "let g:airline_theme='one'
 
-Plug 'marcopaganini/termschool-vim-theme'
+"Plug 'marcopaganini/termschool-vim-theme'
 "colorscheme termschool
 
 
@@ -179,17 +216,25 @@ let g:elite_mode=1
 "set colorcolumn=80
 "highlight ColorColumn ctermbg=darkgray
 
+" Useful when using the 'gf' command ontop of a filename
+let &path.="src/include,/usr/include"
 
-" ====================================== 
-" --------------------------------------
-" Plug settings
-" --------------------------------------
-
-colorscheme codedark
+" Unclutters the working directory
+set backupdir=/tmp
+set directory=.,/tmp
 
 " Changes the 80th column's chars to a color of choice
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
+
+" ====================================== 
+" --------------------------------------
+" Extra plugin settings
+" --------------------------------------
+
+" Overall Vim theme
+colorscheme codedark
+set background=dark
 
 " Airline settings
 let g:airline_powerline_fonts = 1
@@ -255,9 +300,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Note that <Leader> is set to <Space>
 
-:imap ;; <Esc>
+" Bind Ctrl+e to Esc while in Insert mode
+:imap <C-e> <Esc>
 map <C-o> :NERDTreeToggle<CR>
-"map <Leader>f :NERDTreeToggle<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
