@@ -130,7 +130,11 @@ Plug 'tomasiser/vim-code-dark'
 "Plug 'altercation/solarized'
 "colorscheme solarized
 
-"Plug 'chriskempson/base16-vim'
+" VSCode-like
+"Plug 'nanotech/jellybeans.vim'
+
+" Even more VSCode-like
+"Plug 'jacoborus/tender.vim'
 
 " Allows you to preview colors on a working/open file
 " Easy implementation of http://vim.wikia.com/wiki/Switch_color_schemes#Script
@@ -296,16 +300,19 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Note that <Leader> is set to <Space>
 
 " Bind Ctrl+e to Esc while in Insert mode
-:imap <C-e> <Esc>
-map <C-o> :NERDTreeToggle<CR>
+imap <C-e> <Esc>
+nnoremap <C-o> :NERDTreeToggle<CR>
 
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 nnoremap <Leader>o o
 nnoremap <Leader>O O
 
-" Inserts a space when in normal mode
+" Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
+
+" Update source file (shortcut set similar to "refreshing" a web-page)
+nnoremap <F5> :source %<CR>
 
 " ======================================
 " --------------------------------------
