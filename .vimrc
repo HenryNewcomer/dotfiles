@@ -25,7 +25,7 @@ call plug#begin('~/.vim/vim_plugs')
 " REQUIRED VIM PLUG - START AREA (end)
 " ================================================================
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " General plugins:
 " --------------------------------------
@@ -93,8 +93,9 @@ let g:closetag_close_shortcut = '<leader>>'
 Plug 'yggdroot/indentline'
 " Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
 let g:indentLine_char = '¦'
+let g:indentLine_color_gui = '#324754'
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " Themes, icons, etc:
 " --------------------------------------
@@ -109,8 +110,27 @@ Plug 'ryanoasis/vim-devicons'
 " Themes:
 " --------
 
-" Probably my favorite theme
+"Plug 'mhartington/oceanic-next'
+
+" One of my favorite themes
 Plug 'tomasiser/vim-code-dark'
+
+" Note: Also has Liteline and Airline theme support
+"Plug 'joshdick/onedark.vim'
+"colorscheme onedark
+
+"Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+
+" Large selection of themes
+"Plug 'flazz/vim-colorschemes'
+
+"Plug 'nightsense/stellarized'
+"colorscheme stellarized_dark
+
+"Plug 'altercation/solarized'
+"colorscheme solarized
+
+"Plug 'chriskempson/base16-vim'
 
 " Allows you to preview colors on a working/open file
 " Easy implementation of http://vim.wikia.com/wiki/Switch_color_schemes#Script
@@ -120,38 +140,13 @@ nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <F7> :call NextColor(-1)<CR>
 nnoremap <F6> :call NextColor(0)<CR>
 
-" Large selection of themes
-"Plug 'flazz/vim-colorschemes'
+" Attempt to add theme colors to GUI Vim (which I don't use)
+if (has("termguicolors"))
+  set termguicolors
+endif
 
-"Plug 'nightsense/stellarized'
-"colorscheme stellarized_dark
-
-"Plug 'skielbasa/vim-material-monokai'
-"set termguicolors
-"colorscheme material-monokai
-
-"Plug 'altercation/solarized'
-"syntax enable
-"colorscheme solarized
-
-"Plug 'jdkanani/vim-material-theme'
-"syntax enable
-"colorscheme material-theme
-
-" Note: Liteline and Airline theme support
-"Plug 'joshdick/onedark.vim'
-"syntax on
-"colorscheme onedark
-
-"Plug 'mhartington/oceanic-next'
-"colorscheme OceanicNext
-
-"Plug 'rakr/vim-one'
-"colorscheme one
-"let g:airline_theme='one'
-
-"Plug 'marcopaganini/termschool-vim-theme'
-"colorscheme termschool
+" My custom theme
+Plug 'HenryNewcomer/vim-theme-underflow'
 
 
 " --------------------------------- "
@@ -165,6 +160,11 @@ Plug 'vim-airline/vim-airline'
 
 Plug 'vim-airline/vim-airline-themes'
 
+" Airline settings
+let g:airline_powerline_fonts = 1
+let g:airline_theme='angr' " Preferred
+"let g:airline_theme='onedark'
+"let g:airline_theme='oceanicnext'
 
 " ================================================================
 " REQUIRED VIM PLUG - END AREA (beginning)
@@ -176,14 +176,19 @@ call plug#end()
 " REQUIRED VIM PLUG - END AREA (end)
 " ================================================================
 
-"               +++++++++++++++++++++++++++++++++++ 
-" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ 
-"               +++++++++++++++++++++++++++++++++++ 
+"               +++++++++++++++++++++++++++++++++++
+" ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+"               +++++++++++++++++++++++++++++++++++
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " Custom values:
 " --------------------------------------
+
+colorscheme mutenight_scene
+" Current Vim theme
+set background=dark
+set cursorline
 
 syntax on
 set nowrap
@@ -196,7 +201,7 @@ set visualbell
 set number
 set relativenumber
 set ruler
-set cursorline
+"""set cursorline
 
 " Tabs to spaces
 set tabstop=4
@@ -227,20 +232,10 @@ set directory=.,/tmp
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 match OverLength /\%81v.\+/
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " Extra plugin settings
 " --------------------------------------
-
-" Overall Vim theme
-colorscheme codedark
-set background=dark
-
-" Airline settings
-let g:airline_powerline_fonts = 1
-let g:airline_theme='angr' " Preferred
-"let g:airline_theme='onedark'
-"let g:airline_theme='oceanicnext'
 
 
 " FZF
@@ -293,7 +288,7 @@ imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " Key bindings
 " --------------------------------------
@@ -312,7 +307,7 @@ nnoremap <Leader>O O
 " Inserts a space when in normal mode
 nnoremap <Leader><Leader> i <Esc>
 
-" ====================================== 
+" ======================================
 " --------------------------------------
 " Extra stuff
 " --------------------------------------
