@@ -230,7 +230,7 @@ let &path.="src/include,/usr/include"
 
 " Unclutters the working directory
 set backupdir=/tmp
-set directory=.,/tmp
+set directory=/tmp
 
 " Changes the 80th column's chars to a color of choice
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
