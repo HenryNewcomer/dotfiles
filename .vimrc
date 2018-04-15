@@ -151,8 +151,9 @@ nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <F7> :call NextColor(-1)<CR>
 nnoremap <F6> :call NextColor(0)<CR>
 
-" My custom theme
+" My custom themes
 Plug 'HenryNewcomer/vim-theme-underflow'
+Plug 'HenryNewcomer/vim-theme-mutenight-scene'
 
 
 " --------------------------------- "
@@ -318,6 +319,11 @@ nnoremap o o<Esc>
 nnoremap O O<Esc>
 nnoremap <Leader>o o
 nnoremap <Leader>O O
+
+" Add mappings if capital letters were accidentally used
+cabbrev Q! q!
+cabbrev Q quit
+cabbrev W write
 
 " Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
