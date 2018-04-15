@@ -225,15 +225,15 @@ set expandtab
 set smarttab
 retab
 
+" Makes splits appear in the directions I prefer
+set splitright
+set splitbelow
+
 " Always display the status line
 set laststatus=2
 
-" Enable "Elite mode" (no arrows!)
-let g:elite_mode=1
-
-" Sets the 80th column to an alt color
-"set colorcolumn=80
-"highlight ColorColumn ctermbg=darkgray
+" TODO: I haven't tested this yet, so I don't know if it works
+set matchpairs+=<:>,":",':',(:),{:}
 
 " Useful when using the 'gf' command ontop of a filename
 let &path.="src/include,/usr/include"
@@ -246,6 +246,10 @@ set directory=/tmp
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
 " TODO: Only change the 80th column as opposed to everything after it
 match OverLength /\%81v.\+/
+
+" Enable "Elite mode" (no arrows!)
+let g:elite_mode=1
+
 
 " ======================================
 " --------------------------------------
@@ -315,6 +319,7 @@ imap <C-e> <Esc>
 
 nnoremap <C-o> :NERDTreeToggle<CR>
 
+" Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 nnoremap <Leader>o o
@@ -325,6 +330,18 @@ cabbrev Q! q!
 cabbrev Q quit
 cabbrev W write
 
+" Clear trailing whitespace
+nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
+" Easier tab navigation
+" Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
+nnoremap <Leader>v :vnew<CR>
+nnoremap <Leader>h :new<CR>
+nnoremap <Leader><C-h> <C-w><C-h>
+nnoremap <Leader><C-j> <C-w><C-j>
+nnoremap <Leader><C-k> <C-w><C-k>
+nnoremap <Leader><C-l> <C-w><C-l>
+
 " Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
 
@@ -334,6 +351,7 @@ nnoremap <Leader>f 0
 nnoremap <Leader>l $
 
 " Update source file (shortcut set similar to "refreshing" a web-page)
+" TODO: Make it so this only happens in .vimrc
 nnoremap <F5> :source %<CR>
 " Easier than typing ":PlugInstall" all the time
 nnoremap <Leader>pi :PlugInstall<CR>
