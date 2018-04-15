@@ -71,7 +71,6 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-
 Plug 'alvan/vim-closetag'
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
@@ -108,6 +107,7 @@ let g:indentLine_color_gui = '#324754'
 Plug 'junegunn/goyo.vim'
 nnoremap <Leader>zen :Goyo<CR>
 nnoremap <Leader>nzen :Goyo<CR>
+
 
 " ======================================
 " --------------------------------------
@@ -151,6 +151,19 @@ Plug 'tomasiser/vim-code-dark'
 " Includes airline and lightline themes
 Plug 'jacoborus/tender.vim'
 
+Plug 'junegunn/seoul256.vim'
+"colorscheme seoul256
+
+
+" My custom themes
+" ----------------------------------------------
+Plug 'HenryNewcomer/vim-theme-underflow'
+Plug 'HenryNewcomer/vim-theme-mutenight-scene'
+
+
+" Alternate between themes
+" ------------------------
+
 " Allows you to preview colors on a working/open file
 " Easy implementation of http://vim.wikia.com/wiki/Switch_color_schemes#Script
 Plug 'felixhummel/setcolors.vim'
@@ -159,13 +172,9 @@ nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <F7> :call NextColor(-1)<CR>
 nnoremap <F6> :call NextColor(0)<CR>
 
-" My custom themes
-Plug 'HenryNewcomer/vim-theme-underflow'
-Plug 'HenryNewcomer/vim-theme-mutenight-scene'
-
 
 " --------------------------------- "
-" Airline, lightline, etc.        "
+" Airline, lightline, etc.          "
 " (Only have one active at a time!) "
 " --------------------------------- "
 

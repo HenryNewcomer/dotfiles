@@ -118,4 +118,5 @@ alias ez="vim ~/.zshrc"
 
 # Source (zsh)
 alias sz="vim ~/.zshrc"
-
+# Solus OS specific; check for upgrades
+alias up="sudo eopkg upgrade"
