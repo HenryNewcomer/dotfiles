@@ -36,7 +36,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
+"Plug 'scrooloose/syntastic'
+"Plug 'Valloric/YouCompleteMe'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
@@ -69,7 +71,6 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-"Plug 'Valloric/YouCompleteMe'
 
 Plug 'alvan/vim-closetag'
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -207,9 +208,9 @@ if (has("termguicolors"))
 endif
 
 syntax on
-set nowrap
 set encoding=UTF-8
-set showcmd
+set nowrap
+set textwidth=0 wrapmargin=0
 
 " Turns off the beep sound
 set visualbell
@@ -217,6 +218,7 @@ set visualbell
 set number
 set relativenumber
 set ruler
+set showcmd
 
 " Tabs to spaces
 set tabstop=4
@@ -334,7 +336,7 @@ cabbrev W write
 " Clear trailing whitespace
 nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
-" Easier tab navigation
+" Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
 nnoremap <Leader>v :vnew<CR>
 nnoremap <Leader>h :new<CR>
@@ -342,6 +344,9 @@ nnoremap <Leader><C-h> <C-w><C-h>
 nnoremap <Leader><C-j> <C-w><C-j>
 nnoremap <Leader><C-k> <C-w><C-k>
 nnoremap <Leader><C-l> <C-w><C-l>
+
+" ---- TODO: Add commands that get sent to Tmux via <Leader>t and then a
+"  letter
 
 " Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
