@@ -103,6 +103,12 @@ Plug 'yggdroot/indentline'
 let g:indentLine_char = '¦'
 let g:indentLine_color_gui = '#324754'
 
+" Adds extra padding for a zen-like experience
+" If I decide that these key bindings are too long, switch to F11/S+F11 (like fullscreen)
+Plug 'junegunn/goyo.vim'
+nnoremap <Leader>zen :Goyo<CR>
+nnoremap <Leader>nzen :Goyo<CR>
+
 " ======================================
 " --------------------------------------
 " Themes, icons, etc:
