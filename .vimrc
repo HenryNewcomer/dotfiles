@@ -328,13 +328,17 @@ nnoremap O O<Esc>
 nnoremap <Leader>o o
 nnoremap <Leader>O O
 
+" If I feel like being lazy
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>w :w<CR>
+
 " Add mappings if capital letters were accidentally used
 cabbrev Q! q!
 cabbrev Q quit
 cabbrev W write
 
 " Clear trailing whitespace
-nnoremap <Leader>w :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <Leader>rt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
