@@ -44,7 +44,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-repeat'
 "Plug 'honza/vim-snippets'
 "Plug 'terryma/vim-multiple-cursors'
-Plug 'danro/rename.vim'
+Plug 'danro/rename.vim', { 'on':  'Rename' }
 Plug 'editorconfig/editorconfig-vim'
 "Plug 'Valloric/YouCompleteMe'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -69,7 +69,7 @@ noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
 noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
 noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 
-Plug 'Valloric/YouCompleteMe'
+"Plug 'Valloric/YouCompleteMe'
 
 Plug 'alvan/vim-closetag'
 " filenames like *.xml, *.html, *.xhtml, ...
@@ -84,6 +84,7 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
+" Allows hex values to show their color representation visually
 Plug 'chrisbra/Colorizer'
 
 
