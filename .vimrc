@@ -338,7 +338,7 @@ cabbrev Q quit
 cabbrev W write
 
 " Trim (trailing) whitespace
-nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
 
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
@@ -362,7 +362,7 @@ nnoremap <Leader>l $
 
 " Update source file (shortcut set similar to "refreshing" a web-page)
 " TODO: Make it so this only happens in .vimrc
-nnoremap <F5> :source %<CR>
+nnoremap <F5> :source %<CR>:echo "Reloaded the source file."<CR>
 " Easier than typing ":PlugInstall" all the time
 nnoremap <Leader>pi :PlugInstall<CR>
 
@@ -374,8 +374,9 @@ nnoremap <Leader>pi :PlugInstall<CR>
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
-    nnoremap <Up>    :resize -2<CR>
-    nnoremap <Down>  :resize +2<CR>
-    nnoremap <Left>  :resize -2<CR>
-    nnoremap <Right> :resize +2<CR>
+    nnoremap <Up>    :resize -2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
+    nnoremap <Down>  :resize +2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
+    nnoremap <Left>  :resize -2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
+    nnoremap <Right> :resize +2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
 endif
+
