@@ -3,7 +3,7 @@
 " ================================================================
 
 " Important values
-set t_Co=256
+"set t_Co=256
 set encoding=UTF-8
 :let mapleader = " "
 
@@ -84,6 +84,12 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
+Plug 'chrisbra/Colorizer'
+
+
+" Indentation
+" -----------
+
 " Indent Guides - thicker/more colorful
 "Plug 'nathanaelkane/vim-indent-guides'
 "let g:indent_guides_enable_on_vim_startup = 1
@@ -134,7 +140,8 @@ Plug 'tomasiser/vim-code-dark'
 "Plug 'nanotech/jellybeans.vim'
 
 " Even more VSCode-like
-"Plug 'jacoborus/tender.vim'
+" Includes airline and lightline themes
+Plug 'jacoborus/tender.vim'
 
 " Allows you to preview colors on a working/open file
 " Easy implementation of http://vim.wikia.com/wiki/Switch_color_schemes#Script
@@ -143,11 +150,6 @@ Plug 'felixhummel/setcolors.vim'
 nnoremap <F8> :call NextColor(1)<CR>
 nnoremap <F7> :call NextColor(-1)<CR>
 nnoremap <F6> :call NextColor(0)<CR>
-
-" Attempt to add theme colors to GUI Vim (which I don't use)
-if (has("termguicolors"))
-  set termguicolors
-endif
 
 " My custom theme
 Plug 'HenryNewcomer/vim-theme-underflow'
@@ -166,9 +168,11 @@ Plug 'vim-airline/vim-airline-themes'
 
 " Airline settings
 let g:airline_powerline_fonts = 1
-let g:airline_theme='angr' " Preferred
+let g:airline_theme='tender'
+"let g:airline_theme='angr'
 "let g:airline_theme='onedark'
 "let g:airline_theme='oceanicnext'
+
 
 " ================================================================
 " REQUIRED VIM PLUG - END AREA (beginning)
@@ -189,10 +193,16 @@ call plug#end()
 " Custom values:
 " --------------------------------------
 
-colorscheme mutenight_scene
 " Current Vim theme
+colorscheme mutenight_scene
+colors mutenight_scene
+"colorscheme codedark
 set background=dark
 set cursorline
+
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 syntax on
 set nowrap
@@ -205,7 +215,6 @@ set visualbell
 set number
 set relativenumber
 set ruler
-"""set cursorline
 
 " Tabs to spaces
 set tabstop=4
@@ -232,8 +241,9 @@ let &path.="src/include,/usr/include"
 set backupdir=/tmp
 set directory=/tmp
 
-" Changes the 80th column's chars to a color of choice
+" Changes the 80th+ column's chars to a color of choice
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+" TODO: Only change the 80th column as opposed to everything after it
 match OverLength /\%81v.\+/
 
 " ======================================
@@ -301,6 +311,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " Bind Ctrl+e to Esc while in Insert mode
 imap <C-e> <Esc>
+
 nnoremap <C-o> :NERDTreeToggle<CR>
 
 nnoremap o o<Esc>
@@ -311,8 +322,16 @@ nnoremap <Leader>O O
 " Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
 
+" Move to the first or last character within a line, without entering Insert
+" Mode
+nnoremap <Leader>f 0
+nnoremap <Leader>l $
+
 " Update source file (shortcut set similar to "refreshing" a web-page)
 nnoremap <F5> :source %<CR>
+" Easier than typing ":PlugInstall" all the time
+nnoremap <Leader>pi :PlugInstall<CR>
+
 
 " ======================================
 " --------------------------------------
@@ -326,4 +345,3 @@ if get(g:, 'elite_mode')
     nnoremap <Left>  :resize -2<CR>
     nnoremap <Right> :resize +2<CR>
 endif
-
