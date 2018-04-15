@@ -105,3 +105,17 @@
 bindkey -v
 bindkey -M viins '^e' vi-cmd-mode
 bindkey ‘^R’ history-incremental-search-backward
+
+# =============================
+# -----------------------------
+# Aliases
+# -----------------------------
+
+# Edit (rc/conf) file
+alias ev="vim ~/.vimrc"
+alias et="vim ~/.tmux.conf"
+alias ez="vim ~/.zshrc"
+
+# Source (zsh)
+alias sz="vim ~/.zshrc"
+
