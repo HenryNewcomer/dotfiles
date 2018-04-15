@@ -337,8 +337,8 @@ cabbrev Q! q!
 cabbrev Q quit
 cabbrev W write
 
-" Clear trailing whitespace
-nnoremap <Leader>rt :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+" Trim (trailing) whitespace
+nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
 
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used

@@ -101,3 +101,7 @@
 
  [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Make ZSH act similar to Vim :)
+bindkey -v
+bindkey -M viins '^e' vi-cmd-mode
+bindkey ‘^R’ history-incremental-search-backward
