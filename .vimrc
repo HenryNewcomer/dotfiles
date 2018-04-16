@@ -333,7 +333,8 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Note that <Leader> is set to <Space>
 
 " Bind Ctrl+e to Esc while in Insert mode
-imap <C-e> <Esc>
+" Disabling this to get into the habit of pressing Caps Lock instead
+" imap <C-e> <Esc>
 
 nnoremap <C-o> :NERDTreeToggle<CR>
 
@@ -367,14 +368,16 @@ nnoremap <Leader><C-l> <C-w><C-l>
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
 " Update the .vimrc source file 
-nnoremap <Leader>sv :source %<CR>:echo "Reloaded the source file."<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
 
 " TODO: Change this shortcut depending on how much I decide to use it over Tmux
 nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
 
 " Tab and Shift+tab controls indentation like most IDEs
 nnoremap <Tab> >>
+inoremap <Tab> <Esc>>>i
 nnoremap <S-Tab> <<
+inoremap <S-Tab> <Esc><<i
 
 " ----                           TODO: Add commands that get sent to Tmux via <Leader>t and then a
 "  letter
@@ -391,7 +394,7 @@ nnoremap <Leader>l $
 nnoremap <Leader>pi :PlugInstall<CR>
 
 
-" ======================================
+" =====================================
 " --------------------------------------
 " Extra stuff
 " --------------------------------------

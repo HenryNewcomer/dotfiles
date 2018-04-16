@@ -117,6 +117,31 @@ alias et="vim ~/.tmux.conf"
 alias ez="vim ~/.zshrc"
 
 # Source (zsh)
-alias sz="vim ~/.zshrc"
+alias sz="source ~/.zshrc"
 # Solus OS specific; check for upgrades
-alias up="sudo eopkg upgrade"
+alias upg="sudo eopkg upgrade"
+
+
+
+# WORK IN PROGRESS
+# example: somefun gpull hlap
+function testing() {
+    echo "attempitng to load... Arg# $#" 
+    if [ $# -eq 2 ]; then
+        case $1 in
+            "hlap")
+                echo "Henry's laptop"
+                ;; 
+            "desk")
+                echo "Henry's desktop"
+                ;; 
+            *)
+                echo "command help goes here, too."
+                default
+                ;; 
+        esac 
+    else
+        echo "command help info goes here." 
+    fi
+}
+
