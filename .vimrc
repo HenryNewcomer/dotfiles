@@ -366,6 +366,8 @@ nnoremap <Leader><C-l> <C-w><C-l>
 
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
+" Update the .vimrc source file 
+nnoremap <Leader>sv :source %<CR>:echo "Reloaded the source file."<CR>
 
 " TODO: Change this shortcut depending on how much I decide to use it over Tmux
 nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
@@ -384,10 +386,7 @@ nnoremap <Leader><Leader> i <Esc>
 " Mode
 nnoremap <Leader>f 0
 nnoremap <Leader>l $
-
-" Update source file (shortcut set similar to "refreshing" a web-page)
-" TODO: Make it so this only happens in .vimrc
-nnoremap <F5> :source %<CR>:echo "Reloaded the source file."<CR>
+"
 " Easier than typing ":PlugInstall" all the time
 nnoremap <Leader>pi :PlugInstall<CR>
 
