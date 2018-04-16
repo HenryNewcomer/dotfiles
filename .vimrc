@@ -27,7 +27,7 @@ call plug#begin('~/.vim/vim_plugs')
 
 " ======================================
 " --------------------------------------
-" General plugins:
+" `Plugins:
 " --------------------------------------
 
 Plug 'scrooloose/nerdtree'
@@ -57,6 +57,9 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Shortcut is gc (gcc for a line, gcap for a paragraph)
 Plug 'tpope/vim-commentary'
+
+" Markdown syntax highlighting
+Plug 'gabrielelana/vim-markdown'
 
 "Plug 'ctrlpvim/ctrlp.vim'
 "let g:ctrlp_map = '<c-p>'
@@ -208,7 +211,8 @@ call plug#end()
 
 " ======================================
 " --------------------------------------
-" Custom values:
+" `Settings:
+" (Custom values)
 " --------------------------------------
 
 " Current Vim theme
@@ -235,12 +239,13 @@ set relativenumber
 set ruler
 set showcmd
 
-" Tabs to spaces
+" <TAB> related
 set tabstop=4
 set softtabstop=0
 set shiftwidth=4
 set expandtab
 set smarttab
+set autoindent
 retab
 
 " Makes splits appear in the directions I prefer
@@ -252,6 +257,7 @@ set laststatus=2
 
 " TODO: I haven't tested this yet, so I don't know if it works
 set matchpairs+=<:>,":",':',(:),{:}
+set showmatch
 
 " Useful when using the 'gf' command ontop of a filename
 let &path.="src/include,/usr/include"
@@ -327,7 +333,7 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 " ======================================
 " --------------------------------------
-" Key bindings
+" `Key bindings:
 " --------------------------------------
 
 " Note that <Leader> is set to <Space>
@@ -367,7 +373,7 @@ nnoremap <Leader><C-l> <C-w><C-l>
 
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
-" Update the .vimrc source file 
+" Update the .vimrc source file
 nnoremap <Leader>sv :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
 
 " TODO: Change this shortcut depending on how much I decide to use it over Tmux
@@ -396,7 +402,7 @@ nnoremap <Leader>pi :PlugInstall<CR>
 
 " =====================================
 " --------------------------------------
-" Extra stuff
+" `Extra stuff
 " --------------------------------------
 
 " Disable arrow movement, resize splits instead.
