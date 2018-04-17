@@ -103,8 +103,10 @@ Plug 'chrisbra/Colorizer'
 Plug 'yggdroot/indentline'
 " Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
 let g:indentLine_char = '¦'
-let g:indentLine_color_gui = '#324754'
-
+let g:indentLine_color_gui = '#17161c'
+let g:indentLine_bgcolor_gui = '#1f1e24'
+                                                                                        
+                                "lkjlkjlkjlkjlkj 
 " Adds extra padding for a zen-like experience
 " If I decide that these key bindings are too long, switch to F11/S+F11 (like fullscreen)
 Plug 'junegunn/goyo.vim'
@@ -162,6 +164,7 @@ Plug 'junegunn/seoul256.vim'
 " ----------------------------------------------
 Plug 'HenryNewcomer/vim-theme-underflow'
 Plug 'HenryNewcomer/vim-theme-mutenight-scene'
+Plug 'HenryNewcomer/vim-theme-papaya'
 
 
 " Alternate between themes
@@ -216,9 +219,8 @@ call plug#end()
 " --------------------------------------
 
 " Current Vim theme
-colorscheme mutenight_scene
-colors mutenight_scene
-"colorscheme codedark
+colorscheme papaya
+"colors mutenight_scene
 set background=dark
 set cursorline
 
@@ -267,7 +269,7 @@ set backupdir=/tmp
 set directory=/tmp
 
 " Changes the 80th+ column's chars to a color of choice
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+highlight OverLength ctermbg=red ctermfg=white guibg=#1b1a1f
 " TODO: Only change the 80th column as opposed to everything after it
 match OverLength /\%81v.\+/
 
@@ -412,4 +414,13 @@ if get(g:, 'elite_mode')
     nnoremap <Left>  :resize -2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
     nnoremap <Right> :resize +2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
 endif
+
+" Show syntax highlighting groups for word under cursor
+nmap <C-S-P> :call <SID>SynStack()<CR>
+function! <SID>SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
