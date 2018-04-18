@@ -123,7 +123,10 @@ alias upg="sudo eopkg upgrade"
 
 alias gaa="git add -A"
 alias gs="git status"
-
+alias gc="git commit -m "
+alias gu="git push"
+alias gd="git pull"
+gp="echo 'Unknown alias. Did you mean gu (git upstream) or gd (git downstream)?'"
 
 # WORK IN PROGRESS
 # example: somefun gpull hlap
