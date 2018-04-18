@@ -383,9 +383,11 @@ nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
 
 " Tab and Shift+tab controls indentation like most IDEs
 nnoremap <Tab> >>
-inoremap <Tab> <Esc>>>i
 nnoremap <S-Tab> <<
-inoremap <S-Tab> <Esc><<i
+inoremap <Tab> <C-t> 
+inoremap <S-Tab> <C-d>
+vnoremap <Tab> >gv
+vnoremap <S-Tab> <gv
 
 " ----                           TODO: Add commands that get sent to Tmux via <Leader>t and then a
 "  letter
@@ -409,10 +411,10 @@ nnoremap <Leader>pi :PlugInstall<CR>
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
-    nnoremap <Up>    :resize -2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
-    nnoremap <Down>  :resize +2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
-    nnoremap <Left>  :resize -2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
-    nnoremap <Right> :resize +2<CR>:echo "\n\t\t-------------------------\n\t\tDon't use the arrow keys!\n\t\t-------------------------\n"<CR>
+    nnoremap <Up>    <Nop>
+    nnoremap <Down>  <Nop>
+    nnoremap <Left>  <Nop>
+    nnoremap <Right> <Nop>
 endif
 
 " Show syntax highlighting groups for word under cursor
