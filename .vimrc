@@ -111,7 +111,6 @@ let g:indentLine_bgcolor_gui = '#1f1e24'
 " If I decide that these key bindings are too long, switch to F11/S+F11 (like fullscreen)
 Plug 'junegunn/goyo.vim'
 nnoremap <Leader>zen :Goyo<CR>
-nnoremap <Leader>nzen :Goyo<CR>
 
 
 " ======================================
@@ -344,13 +343,13 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 " Disabling this to get into the habit of pressing Caps Lock instead
 " imap <C-e> <Esc>
 
-nnoremap <C-o> :NERDTreeToggle<CR>
+nnoremap <Leader>o :NERDTreeToggle<CR>
 
 " Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
-nnoremap <Leader>o o
-nnoremap <Leader>O O
+"nnoremap <Leader>o o
+"nnoremap <Leader>O O
 
 " If I feel like being lazy
 nnoremap <Leader>q :q<CR>
@@ -366,8 +365,8 @@ nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Tr
 
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
-nnoremap <Leader>v :vnew<CR>
-nnoremap <Leader>h :new<CR>
+nnoremap <Leader>sv :vnew<CR>
+nnoremap <Leader>sh :new<CR>
 nnoremap <Leader><C-h> <C-w><C-h>
 nnoremap <Leader><C-j> <C-w><C-j>
 nnoremap <Leader><C-k> <C-w><C-k>
@@ -397,7 +396,7 @@ nnoremap <Leader><Leader> i <Esc>
 
 " Move to the first or last character within a line, without entering Insert
 " Mode
-nnoremap <Leader>f 0
+nnoremap <Leader>h 0
 nnoremap <Leader>l $
 "
 " Easier than typing ":PlugInstall" all the time

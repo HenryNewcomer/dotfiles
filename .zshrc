@@ -121,27 +121,29 @@ alias sz="source ~/.zshrc"
 # Solus OS specific; check for upgrades
 alias upg="sudo eopkg upgrade"
 
+alias gaa="git add -A"
+alias gs="git status"
 
 
 # WORK IN PROGRESS
 # example: somefun gpull hlap
 function testing() {
-    echo "attempitng to load... Arg# $#" 
+    echo "attempitng to load... Arg# $#"
     if [ $# -eq 2 ]; then
         case $1 in
             "hlap")
                 echo "Henry's laptop"
-                ;; 
+                ;;
             "desk")
                 echo "Henry's desktop"
-                ;; 
+                ;;
             *)
                 echo "command help goes here, too."
                 default
-                ;; 
-        esac 
+                ;;
+        esac
     else
-        echo "command help info goes here." 
+        echo "command help info goes here."
     fi
 }
 
