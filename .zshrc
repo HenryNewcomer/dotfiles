@@ -99,7 +99,13 @@
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
- [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Adds support to start Anaconda (Python) with the command: anaconda-navigator
+export PATH="/home/henry/anaconda3/bin:$PATH"
+
+# Not working (this was for dictionary/thesaurus lookups)
+#source ~/.zsh/bash-define/define.sh
 
 # Make ZSH act similar to Vim :)
 bindkey -v

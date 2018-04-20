@@ -3,9 +3,9 @@
 " ================================================================
 
 " Important values
-"set t_Co=256
 set encoding=UTF-8
-:let mapleader = " "
+let mapleader = " "
+filetype plugin on
 
 " ================================================================
 " REQUIRED VIM PLUG  - START AREA (beginning)
@@ -34,21 +34,18 @@ Plug 'scrooloose/nerdtree'
 " Only start loading when first called
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'w0rp/ale'
-"Plug 'scrooloose/syntastic'
-"Plug 'Valloric/YouCompleteMe'
+Plug 'tpope/vim-repeat'
 Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
-Plug 'tpope/vim-repeat'
 "Plug 'honza/vim-snippets'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'danro/rename.vim', { 'on':  'Rename' }
 Plug 'editorconfig/editorconfig-vim'
-"Plug 'Valloric/YouCompleteMe'
 Plug 'octol/vim-cpp-enhanced-highlight'
 
 " Fuzzy finder
@@ -61,10 +58,10 @@ Plug 'tpope/vim-commentary'
 " Markdown syntax highlighting
 Plug 'gabrielelana/vim-markdown'
 
-"Plug 'ctrlpvim/ctrlp.vim'
-"let g:ctrlp_map = '<c-p>'
-"let g:ctrlp_cmd = 'CtrlP'
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.exe
+" Easy note-taking
+Plug 'xolox/vim-notes'
+" Required for note-taking plugin
+Plug 'xolox/vim-misc'
 
 "Plug 'tpope/vim-obsession'
 
@@ -87,6 +84,16 @@ let g:closetag_shortcut = '>'
 " Add > at current position without closing the current tag, default is ''
 let g:closetag_close_shortcut = '<leader>>'
 
+" Auto-completion framework
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+
 " Allows hex values to show their color representation visually
 Plug 'chrisbra/Colorizer'
 
@@ -105,8 +112,7 @@ Plug 'yggdroot/indentline'
 let g:indentLine_char = '¦'
 let g:indentLine_color_gui = '#17161c'
 let g:indentLine_bgcolor_gui = '#1f1e24'
-                                                                                        
-                                "lkjlkjlkjlkjlkj 
+
 " Adds extra padding for a zen-like experience
 " If I decide that these key bindings are too long, switch to F11/S+F11 (like fullscreen)
 Plug 'junegunn/goyo.vim'
@@ -256,6 +262,7 @@ set splitbelow
 " Always display the status line
 set laststatus=2
 
+
 " TODO: I haven't tested this yet, so I don't know if it works
 set matchpairs+=<:>,":",':',(:),{:}
 set showmatch
@@ -375,7 +382,7 @@ nnoremap <Leader><C-l> <C-w><C-l>
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
 " Update the .vimrc source file
-nnoremap <Leader>sv :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
+nnoremap <Leader>rs :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
 
 " TODO: Change this shortcut depending on how much I decide to use it over Tmux
 nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
