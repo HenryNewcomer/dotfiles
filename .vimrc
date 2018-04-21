@@ -108,6 +108,9 @@ Plug 'chrisbra/Colorizer'
 " Indentline - ASCII themed/more subtle
 " Note that this requires VIM's "conceal" to be enabled (it does this itself)
 Plug 'yggdroot/indentline'
+" Disable this plugin when viewing markdown files (the conceal feature becomes
+" annoying, otherwise).
+autocmd FileType markdown let g:indentLine_enabled=0
 " Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
 let g:indentLine_char = '¦'
 let g:indentLine_color_gui = '#17161c'
