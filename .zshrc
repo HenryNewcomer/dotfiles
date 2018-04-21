@@ -122,17 +122,25 @@ alias ev="vim ~/.vimrc"
 alias et="vim ~/.tmux.conf"
 alias ez="vim ~/.zshrc"
 
-# Source (zsh)
-alias sz="source ~/.zshrc"
 # Solus OS specific; check for upgrades
 alias upg="sudo eopkg upgrade"
 
+# Reload source (zsh)
+alias rz="source ~/.zshrc"
+# Delete the Zsh history
+alias dh="echo '' > ~/.zsh_history"
+# Git
 alias gaa="git add -A"
 alias gs="git status"
 alias gc="git commit -m "
 alias gu="git push"
 alias gd="git pull"
-gp="echo 'Unknown alias. Did you mean gu (git upstream) or gd (git downstream)?'"
+# Just in case...
+alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
+# vtop theme
+alias vtop="vtop --theme brew"
+alias cpu=vtop
+alias mem=vtop
 
 # WORK IN PROGRESS
 # example: somefun gpull hlap
