@@ -355,6 +355,9 @@ imap <c-x><c-l> <plug>(fzf-complete-line)
 
 nnoremap <Leader>o :NERDTreeToggle<CR>
 
+" Clears the current search highlight
+nnoremap <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
+
 " Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
@@ -398,8 +401,7 @@ inoremap <S-Tab> <C-d>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-" ----                           TODO: Add commands that get sent to Tmux via <Leader>t and then a
-"  letter
+" ----   TODO: Add commands that get sent to Tmux via <Leader>t and then a letter
 
 " Inserts a space after two <SPACE> presses, when in normal mode
 nnoremap <Leader><Leader> i <Esc>
