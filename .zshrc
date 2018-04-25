@@ -101,6 +101,9 @@ source $ZSH/oh-my-zsh.sh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Turn off the audible sound effect
+setopt NO_BEEP
+
 # Adds support to start Anaconda (Python) with the command: anaconda-navigator
 export PATH="/home/henry/anaconda3/bin:$PATH"
 
@@ -141,6 +144,9 @@ alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd 
 alias vtop="vtop --theme brew"
 alias cpu=vtop
 alias mem=vtop
+# NPM Reload for web development
+# (looks for index.html file within pwd)
+alias www="reload -b"
 
 # WORK IN PROGRESS
 # example: somefun gpull hlap

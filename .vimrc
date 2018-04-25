@@ -396,7 +396,7 @@ nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
 " Tab and Shift+tab controls indentation like most IDEs
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
-inoremap <Tab> <C-t> 
+inoremap <Tab> <C-t>
 inoremap <S-Tab> <C-d>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
