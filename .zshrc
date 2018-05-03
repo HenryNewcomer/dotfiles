@@ -148,6 +148,16 @@ alias mem=vtop
 # (looks for index.html file within pwd)
 alias www="reload -b"
 
+# =============================
+# -----------------------------
+# Functions
+# -----------------------------
+
+function clearh {
+    rm $HISTFILE
+    echo "$HISTFILE was removed; ZSH history is cleared."
+}
+
 # WORK IN PROGRESS
 # example: somefun gpull hlap
 function testing() {
