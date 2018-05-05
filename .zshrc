@@ -145,8 +145,7 @@ alias vtop="vtop --theme brew"
 alias cpu=vtop
 alias mem=vtop
 # NPM Reload for web development
-# (looks for index.html file within pwd)
-alias www="reload -b"
+alias www="live-server"
 
 # =============================
 # -----------------------------
