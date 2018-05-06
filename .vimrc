@@ -169,6 +169,7 @@ syntax on
 set background=dark
 set cursorline
 set encoding=UTF-8
+set ignorecase smartcase
 set nowrap
 set textwidth=0 wrapmargin=0
 set visualbell " Turns off the beep sound
@@ -191,13 +192,26 @@ set expandtab
 set smarttab
 set autoindent
 retab
-" Unclutters the working directory
-set backupdir=/tmp
-set directory=/tmp
+" Improved backup, swap, and undo storage
+set history=1000
+set noswapfile
+set backup
+set undofile
+set backupdir=~/.vim/dirs/backup
+  if !isdirectory(&backupdir)
+    call mkdir(&backupdir, "p")
+  endif
+set undodir=~/.vim/dirs/undo
+  if !isdirectory(&undodir)
+    call mkdir(&undodir, "p")
+  endif
+"set directory=/tmp " TODO: Do I need this?
 " Changes the 80th+ column's chars to a color of choice
 highlight OverLength ctermbg=red ctermfg=white guibg=#110f17
 match OverLength /\%81v.\+/
 
+" TODO: Testing to see if I want this setting
+set breakindent
 
 " =-=-=-=-=-=-=-=-=-=
 " KEY BINDINGS:
@@ -246,7 +260,20 @@ nnoremap <Leader><Leader> i <Esc>
 " Move to the first or last character within a line, without entering Insert Mode
 nnoremap <Leader>h 0
 nnoremap <Leader>l $
+" Easier system copy & paste
+nnoremap <Leader>y "*y
+nnoremap <Leader>Y "*Y
+nnoremap <Leader>p "*p
+nnoremap <Leader>P "*P
+" Filter through command history
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
 
+" =-=-=-=-=-=-=-=-=-=
+" FILETYPE SPECIfICS
+" =-=-=-=-=-=-=-=-=-=
+
+autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
 
 " =-=-=-=-=-=-=-=-=-=
 " EXTRAS
@@ -268,4 +295,11 @@ function! <SID>SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Use Ag as default grep if available
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  set grepformat=%f:%l:%c:%m
+  command! -nargs=+ -bang Ag silent! grep <args> | redraw! | botright copen
+endif
 
