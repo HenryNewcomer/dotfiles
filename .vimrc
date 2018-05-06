@@ -71,8 +71,8 @@ Plug 'alvan/vim-closetag'
 Plug 'yggdroot/indentline'
   autocmd FileType markdown let g:indentLine_enabled=0 " Disable this plugin when viewing markdown files (the conceal feature becomes annoying, otherwise).
   let g:indentLine_char = '¦' " Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
-  let g:indentLine_color_gui = '#17161c'
-  let g:indentLine_bgcolor_gui = '#1f1e24'
+  "let g:indentLine_color_gui = '#17161c'
+  "let g:indentLine_bgcolor_gui = '#1f1e24'
 Plug 'junegunn/goyo.vim' " Adds extra padding for a zen-like experience
   nnoremap <Leader>zen :Goyo<CR>
 " Fuzzy finder (PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script)
@@ -198,8 +198,8 @@ let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop
 let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
 
 " Changes the 80th+ column's chars to a color of choice
-highlight OverLength ctermbg=red ctermfg=white guibg=#1b1a1f
 match OverLength /\%81v.\+/
+"highlight OverLength ctermbg=red ctermfg=white guibg=#110f17
 
 
 " =-=-=-=-=-=-=-=-=-=
