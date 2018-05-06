@@ -224,6 +224,7 @@ nnoremap <Leader>w :w<CR>
 nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
+nnoremap <Leader>pu :PlugUpgrade<CR>
 nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
 " Clears the current search highlight
 nnoremap <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
