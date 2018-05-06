@@ -179,6 +179,10 @@ set showcmd
 set splitright
 set splitbelow
 set laststatus=2 " Always display the status line
+set matchpairs+=<:>,":",':',(:),{:}
+set showmatch
+let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop of a filename
+let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
 " <TAB> related
 set tabstop=4
 set softtabstop=0
@@ -190,16 +194,9 @@ retab
 " Unclutters the working directory
 set backupdir=/tmp
 set directory=/tmp
-
-set matchpairs+=<:>,":",':',(:),{:}
-set showmatch
-
-let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop of a filename
-let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
-
 " Changes the 80th+ column's chars to a color of choice
+highlight OverLength ctermbg=red ctermfg=white guibg=#110f17
 match OverLength /\%81v.\+/
-"highlight OverLength ctermbg=red ctermfg=white guibg=#110f17
 
 
 " =-=-=-=-=-=-=-=-=-=
