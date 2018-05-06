@@ -38,6 +38,8 @@ Plug 'tpope/vim-commentary' " Shortcut is gc (gcc for a line, gcap for a paragra
 Plug 'gabrielelana/vim-markdown' " Shortcut is gc (gcc for a line, gcap for a paragraph)
 Plug 'xolox/vim-notes' " Easy note-taking
 Plug 'xolox/vim-misc' " Required for note-taking plugin
+Plug 'nvie/vim-flake8' " Python syntax and style checker
+Plug 'mhinz/vim-startify'
 "Plug 'tpope/vim-obsession'
 Plug 'terryma/vim-smooth-scroll'
   noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
