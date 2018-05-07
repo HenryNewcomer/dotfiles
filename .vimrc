@@ -184,8 +184,13 @@ set splitbelow
 set laststatus=2 " Always display the status line
 set matchpairs+=<:>,":",':',(:),{:}
 set showmatch
+set wildignore=*.pyc,.o
 let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop of a filename
 let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
+" Visible indicators
+set list
+set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
+set showbreak=↪\ " When word wrapping is enabled
 " <TAB> related
 set tabstop=4
 set softtabstop=0
@@ -218,8 +223,6 @@ set breakindent
 " =-=-=-=-=-=-=-=-=-=
 " KEY BINDINGS:
 " =-=-=-=-=-=-=-=-=-=
-
-" (NOTE THAT <Leader> WAS SET TO <Space>)
 
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>w :w<CR>
