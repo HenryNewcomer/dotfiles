@@ -26,9 +26,9 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'altercation/vim-colors-solarized'
+"Plug 'altercation/vim-colors-solarized'
 Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
+"Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdcommenter'
 "Plug 'terryma/vim-multiple-cursors'
 Plug 'danro/rename.vim', { 'on':  'Rename' }
@@ -199,6 +199,11 @@ set expandtab
 set smarttab
 set autoindent
 retab
+" Cursor config
+set guicursor=n-v-c:block-Cursor
+set guicursor+=n-v-c:blinkon0
+set guicursor+=i:ver100-iCursor
+set guicursor+=i:blinkwait0
 " Improved backup, swap, and undo storage
 set history=1000
 set noswapfile
@@ -230,9 +235,9 @@ nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
-nnoremap <Leader>term :terminal<CR>:echo "Opening terminal"<CR>
+nnoremap <Leader>term :terminal<CR>
 " Clears the current search highlight
-nnoremap <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
+nnoremap <silent> <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
 " Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
@@ -241,7 +246,7 @@ cabbrev Q! q!
 cabbrev Q quit
 cabbrev W write
 " Trim (trailing) whitespace
-nnoremap <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
+nnoremap <silent> <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
 nnoremap <Leader>sv :vnew<CR>
@@ -251,9 +256,9 @@ nnoremap <Leader><C-j> <C-w><C-j>
 nnoremap <Leader><C-k> <C-w><C-k>
 nnoremap <Leader><C-l> <C-w><C-l>
 " Allows vim to easily open a split and edit the .vimrc file
-nnoremap <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
+nnoremap <silent> <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
 " Updates the .vimrc source file
-nnoremap <Leader>rs :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
+nnoremap <silent> <Leader>rv :source $MYVIMRC<CR>:echo "Reloaded the source file."<CR>
 " Tab and Shift+tab controls indentation like most IDEs
 nnoremap <Tab> >>
 nnoremap <S-Tab> <<
@@ -263,8 +268,8 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 " Inserts a space after two <SPACE> presses when in normal mode
 nnoremap <Leader><Leader> i <Esc>
-" Move to the first or last character within a line, without entering Insert Mode
-nnoremap <Leader>h 0
+" Move to the first or last character within a line
+nnoremap <Leader>h ^
 nnoremap <Leader>l $
 " Easier system copy & paste
 nnoremap <Leader>y "*y

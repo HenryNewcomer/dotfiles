@@ -133,7 +133,7 @@ alias rz="source ~/.zshrc"
 # Clear the Zsh history
 alias ch="echo '' > ~/.zsh_history"
 # Git
-alias ga="git add -A"
+alias gaa="git add -A"
 alias gs="git status"
 alias gu="git push"
 alias gd="git pull"
