@@ -130,12 +130,11 @@ alias upg="sudo eopkg upgrade"
 
 # Reload source (zsh)
 alias rz="source ~/.zshrc"
-# Delete the Zsh history
-alias dh="echo '' > ~/.zsh_history"
+# Clear the Zsh history
+alias ch="echo '' > ~/.zsh_history"
 # Git
-alias gaa="git add -A"
+alias ga="git add -A"
 alias gs="git status"
-alias gc="git commit -m "
 alias gu="git push"
 alias gd="git pull"
 # Just in case...
