@@ -146,6 +146,9 @@ alias cpu=vtop
 alias mem=vtop
 # NPM Reload for web development
 alias www="live-server"
+# Dotfiles locations
+alias dot="cd /hdd/_Backups/Linux_OS/dotfiles"
+alias dotlap="cd ~/Documents/Linux_OS/dotfiles"
 
 # =============================
 # -----------------------------
