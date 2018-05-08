@@ -242,6 +242,8 @@ nnoremap <silent> <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
 " Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
+" Toggle word wrapping
+nnoremap <silent> <Leader>ww :call ToggleWrap()<CR>
 " Add mappings if capital letters were accidentally used
 cabbrev Q! q!
 cabbrev Q quit
@@ -299,6 +301,17 @@ autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
 " =-=-=-=-=-=-=-=-=-=
 " EXTRAS
 " =-=-=-=-=-=-=-=-=-=
+
+" Uses a keybind to easily toggle word-wrapping
+function! ToggleWrap()
+  if &wrap
+    set nowrap
+    echo "Disabled word wrapping."
+  else
+    set wrap
+    echo "Enabled word wrapping."
+  endif
+endfunction
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
