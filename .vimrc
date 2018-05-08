@@ -225,6 +225,7 @@ match OverLength /\%81v.\+/
 " TODO: Testing to see if I want this setting
 set breakindent
 
+
 " =-=-=-=-=-=-=-=-=-=
 " KEY BINDINGS:
 " =-=-=-=-=-=-=-=-=-=
@@ -280,11 +281,20 @@ nnoremap <Leader>P "*P
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
 
+" Creates a more user-friendly, IDE-like completion
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<C-g>u<CR>"
+" When there are suggestions, keep one highlighted
+inoremap <expr> <C-p> pumvisible() ? "<C-p>" : '<C-p><C-R>=pumvisible() ? "\<lt>Up>" : ""<CR>'
+inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+
 " =-=-=-=-=-=-=-=-=-=
 " FILETYPE SPECIfICS
 " =-=-=-=-=-=-=-=-=-=
 
 autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
+
 
 " =-=-=-=-=-=-=-=-=-=
 " EXTRAS
@@ -314,3 +324,4 @@ if executable('ag')
   command! -nargs=+ -bang Ag silent! grep <args> | redraw! | botright copen
 endif
 
+" EoF
