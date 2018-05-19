@@ -113,16 +113,16 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1  "1) Terminals"
+set $ws2  "2) Firefox"
+set $ws3  "3"
+set $ws4  "4"
+set $ws5  "5"
+set $ws6  "6"
+set $ws7  "7"
+set $ws8  "8"
+set $ws9  "9"
+set $ws10 "10) Thunderbird"
 
 
 # switch to workspace
@@ -227,11 +227,23 @@ gaps outer 0
 
 
 #############################
-# Custom additions
+# Custom Keybindings
 #############################
 
 # Open the lock-screen
-#bindsym $defaultmod+Shift+x exec i3lock --color=000000
 bindsym $mod+Shift+x exec ./bin/i3lockblur
+bindsym $mod+Ctrl+i  exec --no-startup-id urxvt -e vim ~/.config/i3/config
+
+
+#############################
+# Auto-start
+#############################
+
+#exec_always feh --bg-center /home/henry/Pictures/wallpaper.png
+# Remap the Caps Lock >.>
+exec_always xmodmap ~/.xmodmap
+
+exec firefox
+exec thunderbird
 
 # EoF

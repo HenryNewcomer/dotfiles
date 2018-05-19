@@ -227,17 +227,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
 # Zsh Syntax Highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
-# Zsh "Geometry" theme
-#git clone https://github.com/geometry-zsh/geometry
-#cd geometry
-#git submodule update --init --recursive
-#cd ~/Downloads
-#mkdir ~/.oh-my-zsh/custom/themes/geometry
-#mv geometry ~/.oh-my-zsh/custom/themes
 
-# Grub customizer; only install if Grub is being used
-#addRepo danielrichter2007/grub-customizer
-#installer grub-customizer #requires ppa
+# i3wm
+installer i3
+installer feh
+#installer arandr
 
 # Extras... Any Linux user obviously needs these
 sudo npm install cowsay
