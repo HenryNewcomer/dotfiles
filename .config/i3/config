@@ -12,7 +12,8 @@ set $right      l
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Clear Sans 10
+#font pango:Clear Sans 10
+font pango:Lato 11
 
 ########## Autolaunch ##########
 exec --no-startup-id nm-applet
@@ -102,7 +103,7 @@ bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
-focus_follows_mouse no
+focus_follows_mouse yes
 
 # focus the child container
 #bindsym $mod+d focus child
