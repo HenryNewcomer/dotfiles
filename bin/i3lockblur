@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Author: Henry Newcomer
+
+TMP_FILE="/tmp/i3lock_bg.png"
+CAPTURE_SCREENSHOT="import -window root"
+ADD_BLUR="-scale 50% -blur 5x2 -scale 200%"
+
+# Save a temporary screenshot
+$CAPTURE_SCREENSHOT $TMP_FILE
+
+# Use imagemagick to add blur and resave the image
+convert $TMP_FILE $ADD_BLUR $TMP_FILE
+
+i3lock -i $TMP_FILE
+rm -f $TMP_FILE
+
+#eof
