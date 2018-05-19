@@ -237,8 +237,8 @@ nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>term :terminal<CR>
-" Clears the current search highlight
-nnoremap <silent> <Leader>cs :noh<CR>:echo "Cleared search string"<CR>
+" Deletes the current search highlight
+nnoremap <silent> <Leader>ds :noh<CR>:echo "Cleared search string"<CR>
 " Makes adding new lines a bit more user-friendly
 nnoremap o o<Esc>
 nnoremap O O<Esc>
