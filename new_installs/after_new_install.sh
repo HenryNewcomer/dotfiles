@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #############################################################################
 #                        Author: Henry Newcomer
@@ -31,6 +31,7 @@ else
   echo "No arguments were passed. Defaulted distro to: $distro. Is this okay? (y/n)"
 
   # TODO: Get user input
+  # TODO: Also, don't set a default distro
   echo "EXITING due to incomplete script"
   exit 1
 fi
@@ -196,16 +197,6 @@ mv PowerlineSymbols.otf ~/.local/share/fonts/
 fc-cache -vf ~/.local/share/fonts/
 mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
-# Flatpak
-installer flatpak
-flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-# Flatpak: Steam
-y | flatpak install flathub com.valvesoftware.Steam
-flatpak run com.valvsoftware.Steam
-
-# Snap
-installer snap
-
 # YouCompleteMe (Vim plugin)
 installer clang #not needed?
 installer build-essential cmake
@@ -222,10 +213,11 @@ installer fileftp
 installer thunderbird
 
 # Extra software
-installer -g vtop #requires npm
+npm install -g vtop
 installer htop
 # A simplistic color picker
 installer gcolor3
+installer screenfetch
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
