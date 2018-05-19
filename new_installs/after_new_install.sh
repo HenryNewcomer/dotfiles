@@ -231,7 +231,10 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 # i3wm
 installer i3
 installer feh
+# Basic GUI randr editor
 #installer arandr
+# Determins class strings for software
+#installer xprop
 
 # Extras... Any Linux user obviously needs these
 sudo npm install cowsay
