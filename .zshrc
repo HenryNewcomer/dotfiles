@@ -45,8 +45,6 @@ alias rz="source ~/.zshrc"
 alias ch=clearhist
 # vtop theme
 alias vtop="vtop --theme brew"
-alias cpu=vtop
-alias mem=vtop
 # NPM Reload for web development
 alias www="live-server"
 # Dotfiles locations
@@ -62,6 +60,9 @@ alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
 # Since I tend to type this on accident, specify what I mean
 alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
 
+# i3 config
+alias ei3="vim ~/.config/i3/config"
+
 
 # =============================
 # -----------------------------
@@ -75,7 +76,7 @@ function clearhist() {
 }
 
 # WORK IN PROGRESS
-# example: somefun gpull hlap
+# example: somefunc gpull hlap
 function testing() {
     echo "attempitng to load... Arg# $#"
     if [ $# -eq 2 ]; then
