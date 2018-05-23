@@ -26,6 +26,8 @@ if [ $# -eq 1 ]; then
   if [ $1 == "solus" ]; then
     distro="solus"
     echo "Distro set as $distro"
+  elif [ $distro == "arch" ]; then
+    echo "Distro set to $distro"
   fi
 else
   echo "No arguments were passed. Defaulted distro to: $distro. Is this okay? (y/n)"
@@ -45,6 +47,8 @@ echo "Starting..."
 function updater() {
   if [ $distro == "solus" ]; then
     sudo eopkg update-repo
+  elif [ $distro == "arch" ]; then
+    sudo pacman -Syy
   else
     sudo apt update
   fi
@@ -53,6 +57,8 @@ function updater() {
 function upgrader() {
   if [ $distro == "solus" ]; then
     sudo eopkg upgrade
+  elif [ $distro == "arch" ]; then
+    sudo pacman -Su
   else
     sudo apt upgrade
   fi
@@ -63,19 +69,30 @@ function cleaner() {
     # Currently not possible due to eopkg; wait for new version
     # ... :(
     echo "Attempted to clean-up leftovers, but eopkg doesn't support clean, autoclean, nor autoremove"
+  elif [ $distro == "arch" ]; then
+    # do nothing
+    echo "..."
   else
     sudo apt clean
     sudo apt autoclean
     sudo apt autoremove
+    echo "Cleaned package leftovers"
   fi
 }
 
+# TODO: These really need fixed; pass extra params in a more shell-friendly way
 function installer() {
   if [ $distro == "solus" ]; then
     if [ $# -eq 1 ]; then
       sudo eopkg install $1
     elif [ $# -eq 2 ]; then
       sudo eopkg install $1 $2
+    fi
+  elif [ $distro == "arch" ]; then
+    if [ $# -eq 1 ]; then
+      sudo pacman -S $1
+    elif [ $# -eq 2 ]; then
+      sudo pacman -S $1 $2
     fi
   else
     # TODO: Just change this into a for loop for n arguments
@@ -95,6 +112,9 @@ function addRepo() {
   if [ $distro == "solus" ]; then
     sudo eopkg add-repo -y $1 $1
     sudo eopkg enable-repo $1
+  elif [ $distro == "arch" ]; then
+    echo "I haven't made a repo process for Arch; repo ignored: "
+    echo " > $1"
   else
     # TODO: Just change this into a for loop for n arguments
     if [ $# -eq 1 ]; then
@@ -157,7 +177,8 @@ installer npm # Required for vtop
 ##################
 installer vim-gtk3 # VIM :D
 installer neovim
-installer tmux
+#installer tmux
+installer gnome-terminal
 installer zsh
 # Changes the default terminal
 chsh -s /usr/bin/zsh
@@ -185,25 +206,25 @@ sudo pip install --upgrade pip
 #sudo pip install powerline-status
 
 # Tmux Plugin Manager
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+#git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # Tmux theme
-git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
+#git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 
 # Powerline fonts (required for tmux theme)
 installer fonts-powerline # this alone should do the trick, but just in case...
-wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
-wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
-mv PowerlineSymbols.otf ~/.local/share/fonts/
-fc-cache -vf ~/.local/share/fonts/
-mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
+#wget https://github.com/powerline/powerline/raw/develop/font/PowerlineSymbols.otf
+#wget https://github.com/powerline/powerline/raw/develop/font/10-powerline-symbols.conf
+#mv PowerlineSymbols.otf ~/.local/share/fonts/
+#fc-cache -vf ~/.local/share/fonts/
+#mv 10-powerline-symbols.conf ~/.config/fontconfig/conf.d/
 
 # YouCompleteMe (Vim plugin)
-installer clang #not needed?
-installer build-essential cmake
-cd ~/.vim/bundle/YouCompleteMe
+#installer clang #not needed?
+#installer build-essential cmake
+#cd ~/.vim/bundle/YouCompleteMe
 # JS requires NodeJS and npm
-./install.py --clang-completer --js-completer
-cd ~/Downloads
+#./install.py --clang-completer --js-completer
+#cd ~/Downloads
 
 # Main software
 installer gimp
@@ -237,6 +258,7 @@ installer feh
 #installer xprop
 
 # Extras... Any Linux user obviously needs these
+installer neofetch
 sudo npm install cowsay
 installer sl
 
