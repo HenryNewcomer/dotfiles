@@ -296,6 +296,7 @@ inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>
 " =-=-=-=-=-=-=-=-=-=
 
 autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType sh  set tabstop=2 softtabstop=2 shiftwidth=2
 
 
 " =-=-=-=-=-=-=-=-=-=
