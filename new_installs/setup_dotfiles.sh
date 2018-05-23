@@ -3,8 +3,10 @@
 # Description: Creates symlinks from ~/ to ~/dotfiles dir
 # Author: Henry Newcomer
 
+# An array of directories to create
+#dirs_to_create=( ".config" ".config/i3/")
 # An array of filenames (without the leading period)
-files=( "gitconfig" "tmux.conf" "vimrc" "zshrc" )
+files=( "gitconfig" "i3/config" "tmux.conf" "vimrc" "xmodmap" "zshrc" )
 NEW_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 
