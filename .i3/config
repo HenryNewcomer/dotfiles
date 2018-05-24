@@ -25,10 +25,10 @@ bindsym $mod+Shift+s exec i3lock # Easier locking
 ### Backlight ###
 # Note: If light doesn't work, install xbacklight and 1) uncomment the two lines below.
 # 2) Comment out the exec light lines.
-# bindsym XF86MonBrightnessUp exec xbacklight -inc 10
-# bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec light -A 10 # Increase Brightness
-bindsym XF86MonBrightnessDown exec light -U 10 # Decrease Brightness
+ bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+ bindsym XF86MonBrightnessDown exec xbacklight -dec 10
+#bindsym XF86MonBrightnessUp exec light -A 10 # Increase Brightness
+#bindsym XF86MonBrightnessDown exec light -U 10 # Decrease Brightness
 
 ### Media Player ###
 bindsym XF86AudioPlay exec playerctl play-pause
@@ -236,7 +236,8 @@ gaps outer 0
 # Open the lock-screen
 bindsym $mod+Shift+x exec ./bin/i3lockblur
 # Quickly edit this i3 config file
-bindsym $mod+Ctrl+i  exec --no-startup-id urxvt -e vim ~/.config/i3/config
+#bindsym $mod+Ctrl+i  exec --no-startup-id urxvt -e vim ~/.config/i3/config
+bindsym $mod+Shift+Ctrl+x exit
 
 #############################
 # Assign workspaces
@@ -254,8 +255,8 @@ assign [class="Thunderbird"] $workspace10
 # Remap the Caps Lock >.>
 exec_always xmodmap ~/.xmodmap
 
-#exec dbus-launch gnome-terminal
-#exec firefox
+exec dbus-launch gnome-terminal
+exec firefox
 #exec thunderbird
 
 #############################
