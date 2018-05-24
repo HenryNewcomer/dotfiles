@@ -48,8 +48,8 @@ alias vtop="vtop --theme brew"
 # NPM Reload for web development
 alias www="live-server"
 # Dotfiles locations
-alias dot="cd /hdd/_Backups/Linux_OS/dotfiles"
-alias dotlap="cd ~/Development/dotfiles"
+alias dot="cd /hdd/_Backups/Linux/dotfiles"
+alias dotlap="cd ~/Development/Linux/dotfiles"
 
 # Git
 alias gaa="git add -A"
