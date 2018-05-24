@@ -235,9 +235,10 @@ gaps outer 0
 
 # Open the lock-screen
 bindsym $mod+Shift+x exec ./bin/i3lockblur
-# Quickly edit this i3 config file
-#bindsym $mod+Ctrl+i  exec --no-startup-id urxvt -e vim ~/.config/i3/config
+# Logout
 bindsym $mod+Shift+Ctrl+x exit
+# Shutdown
+bindsym $mod+Shift+Ctrl+z shutdown
 
 #############################
 # Assign workspaces

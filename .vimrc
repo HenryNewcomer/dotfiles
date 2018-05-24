@@ -67,14 +67,14 @@ Plug 'alvan/vim-closetag'
   "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
   "let g:deoplete#enable_at_startup = 1
-"Plug 'chrisbra/Colorizer' " Allows hex values to show their color representation visually
+Plug 'chrisbra/Colorizer' " Allows hex values to show their color representation visually
+  nnoremap <Leader>hc :ColorToggle<CR>
+  nnoremap <Leader>ht :RGB2Term #
 "Plug 'nathanaelkane/vim-indent-guides' " Indent Guides (thicker/more colorful)
   "let g:indent_guides_enable_on_vim_startup = 1
 Plug 'yggdroot/indentline'
   autocmd FileType markdown let g:indentLine_enabled=0 " Disable this plugin when viewing markdown files (the conceal feature becomes annoying, otherwise).
   let g:indentLine_char = '¦' " Replace the symbol; good choices include: ¦ ┆ │ ⎸ ▏
-  "let g:indentLine_color_gui = '#17161c'
-  "let g:indentLine_bgcolor_gui = '#1f1e24'
 Plug 'junegunn/goyo.vim' " Adds extra padding for a zen-like experience
   nnoremap <Leader>zen :Goyo<CR>
 " Fuzzy finder (PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run install script)
