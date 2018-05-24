@@ -141,7 +141,7 @@ Plug 'jacoborus/tender.vim' " Even more VSCode-like; includes airline and lightl
   "colorscheme seoul256
 
 " My custom themes:
-Plug 'HenryNewcomer/vim-theme-papaya'
+"                            ---  Plug 'HenryNewcomer/vim-theme-papaya'
 "Plug 'HenryNewcomer/vim-theme-mutenight-scene'
 "Plug 'HenryNewcomer/vim-theme-underflow'
 
@@ -250,6 +250,8 @@ cabbrev Q quit
 cabbrev W write
 " Trim (trailing) whitespace
 nnoremap <silent> <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
+" Output highlight groups while using the current theme
+nnoremap <silent> <Leader>sg :so $VIMRUNTIME/syntax/hitest.vim<CR>:set nolist<CR>
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
 nnoremap <Leader>sv :vnew<CR>
@@ -295,6 +297,7 @@ inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>
 " FILETYPE SPECIfICS
 " =-=-=-=-=-=-=-=-=-=
 
+" Tabs
 autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType sh  set tabstop=2 softtabstop=2 shiftwidth=2
 
