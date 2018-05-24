@@ -49,7 +49,7 @@ alias vtop="vtop --theme brew"
 alias www="live-server"
 # Dotfiles locations
 alias dot="cd /hdd/_Backups/Linux_OS/dotfiles"
-alias dotlap="cd ~/Documents/Linux_OS/dotfiles"
+alias dotlap="cd ~/Development/dotfiles"
 
 # Git
 alias gaa="git add -A"
