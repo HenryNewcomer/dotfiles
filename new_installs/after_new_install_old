@@ -175,6 +175,7 @@ installer npm # Required for vtop
 ##################
 ### TERMINALS (start)
 ##################
+installer vim
 installer vim-gtk3 # VIM :D
 installer neovim
 #installer tmux
