@@ -165,7 +165,7 @@ call plug#end()
 
 colorscheme papaya
 if (has("termguicolors"))
-  set termguicolors
+"  set termguicolors
 endif
 syntax on
 set background=dark
