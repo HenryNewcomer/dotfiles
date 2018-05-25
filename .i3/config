@@ -237,8 +237,6 @@ gaps outer 0
 bindsym $mod+Shift+x exec ./bin/i3lockblur
 # Logout
 bindsym $mod+Shift+Ctrl+x exit
-# Shutdown
-bindsym $mod+Shift+Ctrl+z shutdown
 
 #############################
 # Assign workspaces
