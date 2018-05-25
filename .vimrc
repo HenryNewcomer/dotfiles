@@ -41,11 +41,11 @@ Plug 'xolox/vim-misc' " Required for note-taking plugin
 Plug 'nvie/vim-flake8' " Python syntax and style checker
 Plug 'mhinz/vim-startify'
 "Plug 'tpope/vim-obsession'
-Plug 'terryma/vim-smooth-scroll'
-  noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-  noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-  noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
-  noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
+"Plug 'terryma/vim-smooth-scroll'
+  "noremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
+  "noremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
+  "noremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 4)<CR>
+  "noremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 4)<CR>
 Plug 'alvan/vim-closetag'
   " filenames like *.xml, *.html, *.xhtml, ...
   " These are the file extensions where this plugin is enabled.
@@ -164,10 +164,11 @@ call plug#end()
 " =-=-=-=-=-=-=-=-=-=
 
 colorscheme papaya
+" Changes the 80th+ column's chars to a color of choice
+match OverLength /\%81v.\+/
 if (has("termguicolors"))
-"  set termguicolors
+  set termguicolors
 endif
-syntax on
 set background=dark
 set cursorline
 set encoding=UTF-8
@@ -218,9 +219,6 @@ set undodir=~/.vim/dirs/undo
     call mkdir(&undodir, "p")
   endif
 "set directory=/tmp " TODO: Do I need this?
-" Changes the 80th+ column's chars to a color of choice
-highlight OverLength ctermbg=red ctermfg=white guibg=#110f17
-match OverLength /\%81v.\+/
 
 " TODO: Testing to see if I want this setting
 set breakindent
@@ -244,6 +242,8 @@ nnoremap o o<Esc>
 nnoremap O O<Esc>
 " Toggle word wrapping
 nnoremap <silent> <Leader>ww :call ToggleWrap()<CR>
+" Toggle truecolors/256 colors
+nnoremap <silent> <Leader>tg :call ToggleTermGuiColors()<CR>
 " Add mappings if capital letters were accidentally used
 cabbrev Q! q!
 cabbrev Q quit
@@ -314,6 +314,16 @@ function! ToggleWrap()
   else
     set wrap
     echo "Enabled word wrapping."
+  endif
+endfunction
+
+function! ToggleTermGuiColors()
+  if &termguicolors
+    set notermguicolors
+    echo "Disabled 24-bit truecolors. Now using 256 colors."
+  else
+    set termguicolors
+    echo "Enabled 24-bit truecolors"
   endif
 endfunction
 
