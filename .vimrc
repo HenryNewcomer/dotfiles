@@ -164,7 +164,7 @@ call plug#end()
 " =-=-=-=-=-=-=-=-=-=
 
 colorscheme papaya
-let g:papaya_color='blue'
+let g:papaya_gui_color='blue'
 
 " Changes the 80th+ column's chars to a color of choice
 match OverLength /\%81v.\+/
@@ -237,7 +237,7 @@ nnoremap <Leader>o :NERDTreeToggle<CR>
 nnoremap <Leader>pi :PlugInstall<CR>
 nnoremap <Leader>pc :PlugClean<CR>
 nnoremap <Leader>pu :PlugUpdate<CR>
-nnoremap <Leader>term :terminal<CR>
+nnoremap <Leader>tty :terminal<CR>
 " Deletes the current search highlight
 nnoremap <silent> <Leader>ds :noh<CR>:echo "Cleared search string"<CR>
 " Makes adding new lines a bit more user-friendly
@@ -247,14 +247,14 @@ nnoremap O O<Esc>
 nnoremap <silent> <Leader>ww :call ToggleWrap()<CR>
 " Toggle truecolors/256 colors
 nnoremap <silent> <Leader>tg :call ToggleTermGuiColors()<CR>
+" Output highlight groups while using the current theme
+nnoremap <silent> <Leader>hg :so $VIMRUNTIME/syntax/hitest.vim<CR>:set nolist<CR>
 " Add mappings if capital letters were accidentally used
 cabbrev Q! q!
 cabbrev Q quit
 cabbrev W write
 " Trim (trailing) whitespace
 nnoremap <silent> <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
-" Output highlight groups while using the current theme
-nnoremap <silent> <Leader>sg :so $VIMRUNTIME/syntax/hitest.vim<CR>:set nolist<CR>
 " Easier split navigation
 " Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
 nnoremap <Leader>sv :vnew<CR>
