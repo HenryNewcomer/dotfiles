@@ -164,8 +164,11 @@ call plug#end()
 " =-=-=-=-=-=-=-=-=-=
 
 colorscheme papaya
+let g:papaya_color='blue'
+
 " Changes the 80th+ column's chars to a color of choice
 match OverLength /\%81v.\+/
+
 if (has("termguicolors"))
   set termguicolors
 endif
@@ -298,8 +301,8 @@ inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>
 " =-=-=-=-=-=-=-=-=-=
 
 " Tabs
-autocmd FileType vim set tabstop=2 softtabstop=2 shiftwidth=2
-autocmd FileType sh  set tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType vim set tabstop=2 softtabstop=0 shiftwidth=2
+autocmd FileType sh  set tabstop=2 softtabstop=0 shiftwidth=2
 
 
 " =-=-=-=-=-=-=-=-=-=
