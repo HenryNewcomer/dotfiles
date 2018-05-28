@@ -7,119 +7,107 @@
 # software and settings
 #############################################################################
 
-# NOTE: This is a work-in-progress and is NOT complete!
-
 #############################################################################
 # Setup initial values
 #############################################################################
 
 # Used for loops awaiting user input
 awaiting=true
-# What distro is being used? Assume Ubuntu/Debian by default
-distro="deb"
+# What distro is being used?
+distro="none"
 
-#############################################################################
-# Check if arg was supplied
-#############################################################################
-
-if [ $# -eq 1 ]; then
-  if [ $1 == "solus" ]; then
-    distro="solus"
-    echo "Distro set as $distro"
-  elif [ $distro == "arch" ]; then
-    echo "Distro set to $distro"
-  fi
-else
-  echo "No arguments were passed. Defaulted distro to: $distro. Is this okay? (y/n)"
-
-  # TODO: Get user input
-  # TODO: Also, don't set a default distro
-  echo "EXITING due to incomplete script"
-  exit 1
-fi
 
 #############################################################################
 # Functions
 #############################################################################
 
-echo "Starting..."
-
 function updater() {
-  if [ $distro == "solus" ]; then
-    sudo eopkg update-repo
-  elif [ $distro == "arch" ]; then
+  if [[ $distro == "solus" ]]; then
+    echo ""
+  elif [[ $distro == "arch" ]]; then
     sudo pacman -Syy
-  else
+  elif [[ $distro == "ubuntu" ]]; then
     sudo apt update
+  else
+    echo "Invalid distro. Aborting."
+    exit 1
   fi
 }
 
 function upgrader() {
-  if [ $distro == "solus" ]; then
+  if [[ $distro == "solus" ]]; then
     sudo eopkg upgrade
-  elif [ $distro == "arch" ]; then
+  elif [[ $distro == "arch" ]]; then
     sudo pacman -Su
+  elif [[ $distro == "ubuntu" ]]; then
+    sudo apt update
   else
-    sudo apt upgrade
+    echo "Invalid distro. Aborting."
+    exit 1
   fi
 }
 
 function cleaner() {
-  if [ $distro == "solus" ]; then
+  if [[ $distro == "solus" ]]; then
     # Currently not possible due to eopkg; wait for new version
-    # ... :(
-    echo "Attempted to clean-up leftovers, but eopkg doesn't support clean, autoclean, nor autoremove"
-  elif [ $distro == "arch" ]; then
+    echo "Attempted to clean-up leftovers, but eopkg doesn't support package cleanups."
+  elif [[ $distro == "arch" ]]; then
     # do nothing
     echo "..."
-  else
+  elif [[ $distro == "ubuntu" ]]; then
     sudo apt clean
     sudo apt autoclean
     sudo apt autoremove
     echo "Cleaned package leftovers"
+  else
+    echo "Invalid distro. Aborting."
+    exit 1
   fi
 }
 
 # TODO: These really need fixed; pass extra params in a more shell-friendly way
 function installer() {
-  if [ $distro == "solus" ]; then
-    if [ $# -eq 1 ]; then
+  if [[ $distro == "solus" ]]; then
+    if [[ $# -eq 1 ]]; then
       sudo eopkg install $1
-    elif [ $# -eq 2 ]; then
+    elif [[ $# -eq 2 ]]; then
       sudo eopkg install $1 $2
     fi
-  elif [ $distro == "arch" ]; then
-    if [ $# -eq 1 ]; then
+  elif [[ $distro == "arch" ]]; then
+    if [[ $# -eq 1 ]]; then
       sudo pacman -S $1
-    elif [ $# -eq 2 ]; then
+    elif [[ $# -eq 2 ]]; then
       sudo pacman -S $1 $2
     fi
-  else
+  elif [[ $distro == "ubuntu" ]]; then
     # TODO: Just change this into a for loop for n arguments
-    if [ $# -eq 1 ]; then
+    if [[ $# -eq 1 ]]; then
       yes | sudo apt install $1
-    elif [ $# -eq 2 ]; then
+    elif [[ $# -eq 2 ]]; then
       yes | sudo apt install $1 $2
-    elif [ $# -eq 3 ]; then
+    elif [[ $# -eq 3 ]]; then
       yes | sudo apt install $1 $2 $3
     fi
+  else
+    echo "Invalid distro. Aborting."
+    exit 1
   fi
 }
 
 # TODO: Fix the repo function; remember that Solus uses a name reference when
 # adding repos
 function addRepo() {
-  if [ $distro == "solus" ]; then
+  if [[ $distro == "solus" ]]; then
     sudo eopkg add-repo -y $1 $1
     sudo eopkg enable-repo $1
-  elif [ $distro == "arch" ]; then
+  elif [[ $distro == "arch" ]]; then
     echo "I haven't made a repo process for Arch; repo ignored: "
     echo " > $1"
   else
     # TODO: Just change this into a for loop for n arguments
-    if [ $# -eq 1 ]; then
+    if [[ $# -eq 1 ]]; then
       sudo add-apt-repository -y $1
-    elif [ $# -eq 2 ]; then
+    elif [[ $# -eq 2 ]]; then
       sudo add-apt-repository -y $1 $2
     fi
   fi
@@ -127,7 +115,7 @@ function addRepo() {
 
 # (all unsorted)
 
-#while [ $awaiting ]
+#while [[ $awaiting ]]
 #do
 #  echo "testing: press y to quit, n to loop"
   #$input<from console
@@ -135,11 +123,6 @@ function addRepo() {
 
 #exit 0 # FOR DEBUGGING
 
-#############################################################################
-# Add repositories
-#############################################################################
-
-#sudo add-apt-repository ppa:danielrichter2007/grub-customizer
 
 #############################################################################
 # Installation processes
@@ -150,6 +133,23 @@ updater
 # Just in case...
 upgrader
 
+# Check if arguments were passed
+if [[ $# -eq 1 ]]; then
+  if [[ $1 == "solus" ]]; then
+    distro="solus"
+    echo "Distro set as $distro"
+  elif [[ $distro == "arch" ]]; then
+    distro="arch"
+    echo "Distro set to $distro"
+  elif [[ $distro == "ubuntu" ]]; then
+    distro="ubuntu"
+    echo "Distro set to $distro"
+  fi
+else
+  echo "No arguments were passed. Defaulted distro to: $distro. Is this okay? (y/n)"
+
+  exit 1
+fi
 ###############################################
 # Start installers...                         #
 ###############################################
