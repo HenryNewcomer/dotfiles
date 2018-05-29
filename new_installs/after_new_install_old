@@ -258,6 +258,10 @@ installer feh
 # Determins class strings for software
 #installer xprop
 
+" st - Simple Terminal
+installer freetype2
+installer freetype2-devel
+
 # Extras... Any Linux user obviously needs these
 installer neofetch
 sudo npm install cowsay
