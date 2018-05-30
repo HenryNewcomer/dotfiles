@@ -118,7 +118,7 @@ bindsym $mod+minus scratchpad show
 # We use variables to avoid repeating the names in multiple places.
 set $workspace1  "1) Terminals "
 set $workspace2  "2) Firefox "
-set $workspace3  "3"
+set $workspace3  "3) Qutebrowser "
 set $workspace4  "4"
 set $workspace5  "5"
 set $workspace6  "6"
@@ -237,12 +237,15 @@ gaps outer 0
 bindsym $mod+Shift+x exec ./bin/i3lockblur
 # Logout
 bindsym $mod+Shift+Ctrl+x exit
+bindsym $mod+Shift+f exec firefox
+bindsym $mod+Shift+i exec qutebrowser
 
 #############################
 # Assign workspaces
 #############################
 
 assign [class="Firefox"] $workspace2
+assign [class="Qutebrowser"] $workspace3
 assign [class="Thunderbird"] $workspace10
 
 
