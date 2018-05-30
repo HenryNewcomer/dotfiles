@@ -65,16 +65,18 @@ function upgrader() {
 
 function cleaner() {
   if [[ $distro == "solus" ]]; then
-    # Currently not possible due to eopkg; wait for new version
-    echo "Attempted to clean-up leftovers, but eopkg doesn't support package cleanups."
+    rm -rf ~/Downloads/new_install
+    echo "Removed ~/Downloads/new_install directory."
   elif [[ $distro == "arch" ]]; then
-    # do nothing
-    echo "..."
+    rm -rf ~/Downloads/new_install
+    echo "Removed ~/Downloads/new_install directory."
   elif [[ $distro == "ubuntu" ]]; then
     sudo apt clean
     sudo apt autoclean
     sudo apt autoremove
     echo "Cleaned package leftovers"
+    rm -rf ~/Downloads/new_install
+    echo "Removed ~/Downloads/new_install directory."
   else
     echo "Invalid distro. Aborting."
     exit 1
@@ -85,15 +87,15 @@ function cleaner() {
 function installer() {
   if [[ $distro == "solus" ]]; then
     if [[ $# -eq 1 ]]; then
-      sudo eopkg install $1
+      yes | sudo eopkg install $1
     elif [[ $# -eq 2 ]]; then
-      sudo eopkg install $1 $2
+      yes | sudo eopkg install $1 $2
     fi
   elif [[ $distro == "arch" ]]; then
     if [[ $# -eq 1 ]]; then
-      sudo pacman -S $1
+      yes | sudo pacman -S $1
     elif [[ $# -eq 2 ]]; then
-      sudo pacman -S $1 $2
+      yes | sudo pacman -S $1 $2
     fi
   elif [[ $distro == "ubuntu" ]]; then
     # TODO: Just change this into a for loop for n arguments
@@ -140,7 +142,7 @@ else
   getDistro
 fi
 
-# Update repo info
+# Check if there's any package updates
 updater
 # Check for current available upgrades prior to installations
 upgrader
@@ -153,8 +155,8 @@ upgrader
 # Try to stay inside of the ~/Downloads dir as often as possible
 # in case of leftover files
 cd ~
-mkdir -p Downloads
-cd ~/Downloads
+mkdir -p Downloads/new_install
+cd ~/Downloads/new_install
 
 # *Important; download first*
 installer curl
@@ -227,11 +229,10 @@ installer fileftp
 installer thunderbird
 
 # Extra software
-npm install -g vtop
+sudo npm install -g vtop
 installer htop
 # A simplistic color picker
 installer gcolor3
-installer screenfetch
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -244,28 +245,13 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # i3wm
 installer i3
+installer i3lock
+installer dmenu
 installer feh
 # Basic GUI randr editor
 #installer arandr
 # Determins class strings for software
 #installer xprop
-
-# st - Simple Terminal (only tested on Solus)
-# TODO: Move these into a function that filters by distro
-# NOTE that I also had to run make as: make CC=clang
-# Solus requried the packages found here:
-# sudo eopkg it -c system.devel
-cd ~/Downloads/
-sudo eopkg it -c system.devel
-#installer freetype2
-#installer freetype2-devel
-#installer fontconfig
-#installer fontconfig-devel
-#installer make
-#installer cmake
-#installer llvm-clang
-#installer libx11-devel
-#installer libxft-devel
 
 # Extras... Any Linux user obviously needs these
 installer neofetch
