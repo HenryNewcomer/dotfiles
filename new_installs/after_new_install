@@ -65,7 +65,7 @@ function upgrader() {
 
 function cleaner() {
   if [[ $distro == "solus" ]]; then
-    rm -rf ~/Downloads/new_install
+    sudo rm -rf ~/Downloads/new_install
     echo "Removed ~/Downloads/new_install directory."
   elif [[ $distro == "arch" ]]; then
     rm -rf ~/Downloads/new_install

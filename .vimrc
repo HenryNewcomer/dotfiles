@@ -141,7 +141,7 @@ Plug 'jacoborus/tender.vim' " Even more VSCode-like; includes airline and lightl
   "colorscheme seoul256
 
 " My custom themes:
-"                            ---  Plug 'HenryNewcomer/vim-theme-papaya'
+Plug 'HenryNewcomer/vim-theme-papaya'
 "Plug 'HenryNewcomer/vim-theme-mutenight-scene'
 "Plug 'HenryNewcomer/vim-theme-underflow'
 
