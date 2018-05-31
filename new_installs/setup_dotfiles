@@ -7,7 +7,7 @@
 # This currently only makes dirs one level deep
 dirs_to_create=( ".i3" )
 # An array of filenames
-files=( ".gitconfig" ".i3/config" ".tmux.conf" ".vimrc" ".xmodmap" ".zshrc" )
+files=( ".gitconfig" ".i3/config" ".tmux.conf" ".vimrc" ".xinitrc" ".xmodmap" ".zshrc" )
 NEW_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 
