@@ -258,6 +258,11 @@ installer neofetch
 sudo npm install cowsay
 installer sl
 
+# Fonts
+installer -S ttf-linux-libertine
+installer -S ttf-inconsolata
+installer -S noto-fonts
+
 ###############################################
 # Done with installers                        #
 ###############################################
@@ -276,5 +281,3 @@ cleaner
 
 #############################################################################
 # EoF
-#############################################################################
-
