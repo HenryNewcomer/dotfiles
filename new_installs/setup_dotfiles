@@ -7,7 +7,7 @@
 # This currently only makes dirs one level deep
 dirs_to_create=( "bin" ".fonts" ".i3" )
 # An array of filenames
-files=( "bin/i3lockblur" ".i3/config" ".gitconfig" ".tmux.conf" ".vimrc" ".xinitrc" ".xmodmap" ".zshrc" )
+files=( "bin/i3lockblur" ".i3/config" ".emacs" ".gitconfig" ".tmux.conf" ".vimrc" ".xinitrc" ".xmodmap" ".zshrc" )
 MAIN_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 
