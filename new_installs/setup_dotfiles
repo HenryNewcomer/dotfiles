@@ -5,11 +5,13 @@
 
 # An array of directories to create
 # This currently only makes dirs one level deep
-dirs_to_create=( ".i3" )
+dirs_to_create=( ".i3" ".fonts" )
 # An array of filenames
 files=( ".gitconfig" ".i3/config" ".tmux.conf" ".vimrc" ".xinitrc" ".xmodmap" ".zshrc" )
-NEW_DOTFILES=$(dirname `pwd`)
+MAIN_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
+
+# TODO: Make sure dirs are created within old_dotfiles, too
 
 for folder in "${dirs_to_create[@]}"; do
   if [[ ! -d "${HOME}/${folder}" ]]; then
@@ -33,7 +35,7 @@ if [[ ! -d "${OLD_DOTFILES}" ]]; then
   exit 1
 fi
 
-cd $NEW_DOTFILES
+cd $MAIN_DOTFILES
 
 echo "Moving existing dotfiles to $OLD_DOTFILES"
 
@@ -44,8 +46,11 @@ for file in "${files[@]}"; do
     mv -f "${HOME}/${file}" "${OLD_DOTFILES}/${file}"
   fi
   echo "Creating symlink to ${file} in home directory."
-  ln -s "${NEW_DOTFILES}/${file}" "${HOME}/${file}"
+  ln -s "${MAIN_DOTFILES}/${file}" "${HOME}/${file}"
 done
+
+echo "Copying fonts"
+cp -a "${MAIN_DOTFILES}/.fonts/." "${HOME}/.fonts/"
 
 echo -e "\nFinished!\n"
 exit 0
