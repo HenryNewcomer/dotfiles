@@ -240,6 +240,9 @@ installer feh
 installer firefox
 installer qutebrowser
 
+# Image manipulation
+installer imagemagick
+
 # Fonts
 installer ttf-font-awesome
 installer ttf-linux-libertine
