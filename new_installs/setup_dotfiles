@@ -4,26 +4,15 @@
 # Author: Henry Newcomer
 
 # An array of directories to create
-# This currently only makes dirs one level deep
-dirs_to_create=( "bin" ".fonts" ".i3" )
+dirs_to_create=( "bin" ".config" ".config/termite" ".fonts" ".i3" )
 # An array of filenames
-files=( "bin/i3lockblur" ".i3/config" ".emacs" ".gitconfig" ".tmux.conf" \
-      ".vimrc" ".xinitrc" ".xmodmap" ".zprofile" ".zshrc" )
+files=( "bin/i3lockblur" ".config/termite/config" ".i3/config" ".emacs" \
+  ".gitconfig" ".tmux.conf" ".vimrc" ".xinitrc" ".xmodmap" ".zprofile" \
+  ".zshrc" )
 MAIN_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 
-# TODO: Make sure dirs are created within old_dotfiles, too
-
-for folder in "${dirs_to_create[@]}"; do
-  if [[ ! -d "${HOME}/${folder}" ]]; then
-    cd $HOME
-    echo "Making new ${folder} directory inside of ${HOME}"
-    mkdir "${folder}"
-  else
-    echo "${HOME}/${folder} already exists - skipped directory creation."
-  fi
-done
-
+# Make a central backup directory
 if [[ -d "${OLD_DOTFILES}" ]]; then
   echo "Entering $OLD_DOTFILES directory. Existing backups will be overwritten."
 else
@@ -35,6 +24,21 @@ if [[ ! -d "${OLD_DOTFILES}" ]]; then
   echo "Could not create $OLD_DOTFILES -- Script was aborted!"
   exit 1
 fi
+
+# Create proper directories
+for folder in "${dirs_to_create[@]}"; do
+  if [[ ! -d "${HOME}/${folder}" ]]; then
+    cd $HOME
+    echo "Making new ${folder} directory inside of ${HOME}"
+    mkdir -p "${folder}"
+  else
+    echo "${HOME}/${folder} already exists - skipped directory creation."
+  fi
+
+  echo "Making potential subdirectories within ${OLD_DOTFILES}"
+  mkdir -p "${OLD_DOTFILES}/${folder}"
+done
+
 
 cd $MAIN_DOTFILES
 
