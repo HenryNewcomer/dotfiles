@@ -33,8 +33,9 @@ bindkey ‘^R’ history-incremental-search-backward
 
 # Edit (rc/conf) file
 alias ev="vim ~/.vimrc"
-alias et="vim ~/.tmux.conf"
 alias ez="vim ~/.zshrc"
+alias ei3="vim ~/.i3"
+alias et="vim ~/.config/termite/config"
 
 # Solus OS specific; check for upgrades
 alias upg="sudo eopkg upgrade"
@@ -59,9 +60,6 @@ alias gd="git pull"
 alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
 # Since I tend to type this on accident, specify what I mean
 alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
-
-# i3 config
-alias ei3="vim ~/.config/i3/config"
 
 
 # =============================
