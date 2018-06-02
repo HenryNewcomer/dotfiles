@@ -34,7 +34,7 @@ bindkey ‘^R’ history-incremental-search-backward
 # Edit (rc/conf) file
 alias ev="vim ~/.vimrc"
 alias ez="vim ~/.zshrc"
-alias ei3="vim ~/.i3/config"
+alias ei="vim ~/.i3/config"
 alias et="vim ~/.config/termite/config"
 # lol! blashphemy...
 alias ee="vim ~/.emacs"
