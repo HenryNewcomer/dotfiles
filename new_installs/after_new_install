@@ -241,6 +241,9 @@ installer qutebrowser
 # Image manipulation
 installer imagemagick
 
+# For system clock
+installer ntp
+
 # Fonts
 installer ttf-font-awesome
 installer ttf-linux-libertine
@@ -260,6 +263,10 @@ installer sl
 
 # Cleanup...
 cleaner
+
+# Enable the service for the system time
+systemctl enable ntpd.service
+systemctl start ntpd.service
 
 #############################################################################
 # Extra notes
