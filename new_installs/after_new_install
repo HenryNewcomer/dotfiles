@@ -232,7 +232,9 @@ installer feh
 # Basic GUI randr editor
 #installer arandr
 # Determins class strings for software
-#installer xprop
+installer xprop
+# Allows Num Lock to be enabled at login
+installer numlockx
 
 # Browsers
 installer firefox
