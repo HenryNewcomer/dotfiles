@@ -235,10 +235,14 @@ gaps outer 0
 #############################
 
 # $mod+Shift+...
+bindsym $mod+Shift+b exec qutebrowser
 bindsym $mod+Shift+e exec emacs
-bindsym $mod+Shift+f exec firefox
-bindsym $mod+Shift+i exec qutebrowser
+bindsym $mod+Shift+i exec firefox
+bindsym $mod+Shift+m exec termite -e ranger
 bindsym $mod+Shift+x exec ./bin/i3lockblur
+
+# $mod+Ctrl+...
+bindsym $mod+Ctrl+v exec termite -e vim
 
 # $mod+Shift+Ctrl+...
 bindsym $mod+Shift+Ctrl+x exit
