@@ -46,9 +46,9 @@ exec_always xmodmap ~/.xmodmap
 # Add transparency
 exec compton -f
 
-exec termite
 exec firefox
 #exec thunderbird
+#exec termite
 
 #############################
 # Styling
