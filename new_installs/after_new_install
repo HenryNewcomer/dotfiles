@@ -175,9 +175,7 @@ installer npm # Required for vtop
 ##################
 ### TERMINALS (start)
 ##################
-installer vim
-installer vim-gtk3 # VIM :D
-installer neovim
+installer gvim # gVim includes +clipboard on Arch
 #installer tmux
 installer gnome-terminal
 installer zsh
