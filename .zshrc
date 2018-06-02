@@ -36,6 +36,8 @@ alias ev="vim ~/.vimrc"
 alias ez="vim ~/.zshrc"
 alias ei3="vim ~/.i3/config"
 alias et="vim ~/.config/termite/config"
+# lol! blashphemy...
+alias ee="vim ~/.emacs"
 
 # Solus OS specific; check for upgrades
 alias upg="sudo eopkg upgrade"
