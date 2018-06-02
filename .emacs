@@ -29,6 +29,9 @@
 (require 'evil)
 (evil-mode 1)
 
+;; Undo Tree
+(global-undo-tree-mode)
+
 ;; =================================
 ;;   Set default settings
 ;; =================================
