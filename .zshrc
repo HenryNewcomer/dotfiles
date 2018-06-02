@@ -63,6 +63,8 @@ alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
 # Since I tend to type this on accident, specify what I mean
 alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
 
+# Miscellaneous
+alias x="xprop"
 
 # =============================
 # -----------------------------

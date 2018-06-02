@@ -269,13 +269,4 @@ systemctl enable ntpd.service
 systemctl start ntpd.service
 
 #############################################################################
-# Extra notes
-#############################################################################
-
-# For manually compiling tmux:
-# sudo apt install libevent-dev
-# sudo apt install libncurses-dev
-# To check version: tmux -V
-
-#############################################################################
 # EoF

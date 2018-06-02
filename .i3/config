@@ -1,11 +1,11 @@
-#############################
-# Henry's i3 config file
-#############################
-
+# ============================================================================
+# ****************************************************************************
+#                          Henry's i3 config file
+# ****************************************************************************
+# ============================================================================
 
 # Sets the default $mod key to the Windows key
 set $mod Mod4
-
 
 #############################
 # Custom Keybindings
@@ -26,7 +26,6 @@ bindsym $mod+Ctrl+v exec termite -e vim
 # $mod+Shift+Ctrl+...
 bindsym $mod+Shift+Ctrl+x exit
 
-
 #############################
 # Assign workspaces
 #############################
@@ -34,7 +33,6 @@ bindsym $mod+Shift+Ctrl+x exit
 assign [class="Firefox"] $workspace2
 assign [class="qutebrowser"] $workspace3
 assign [class="Thunderbird"] $workspace10
-
 
 #############################
 # Auto-start
@@ -44,12 +42,15 @@ exec_always feh --bg-center /home/henry/Pictures/wallpaper.jpg
 # Remap the Caps Lock >.>
 exec_always xmodmap ~/.xmodmap
 
+exec compton
+
 exec termite
 exec firefox
 #exec thunderbird
 
-
-########## Styling ##########
+#############################
+# Styling
+#############################
 
 # <colorclass>         <border> <bg> <text> <indicator> <child_border>
 client.focused          #5a6f77 #18222c #b6d3e3 #536991 #b6d3e3
@@ -58,6 +59,10 @@ client.unfocused        #ff0000 #ff0000 #ff0000 #ff0000 #12171c
 client.urgent           #ff0000 #ff0000 #ff0000 #00ff00 #7bb58a
 client.background       #404552
 
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+#font pango:Clear Sans 10
+font pango:Hack 9
 
 #############################
 # Miscellaneous
@@ -69,11 +74,7 @@ set $down       j
 set $left       h
 set $right      l
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-#font pango:Clear Sans 10
-font pango:Hack 9
-
+# ---------------------------------------
 
 ################################
 # vvv Mostly auto-configured vvv
@@ -177,7 +178,7 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $workspace1  "1) Terminals "
+set $workspace1  "1) Developer "
 set $workspace2  "2) Firefox "
 set $workspace3  "3) Qutebrowser "
 set $workspace4  "4"
