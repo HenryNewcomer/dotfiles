@@ -20,8 +20,12 @@
 ;;   Packages
 ;; =================================
 
+;; Evil <Leader>
 ;;(require 'evil-leader)
 ;;(global-evil-leader-mode)
+
+;; Evil mode
+(add-to-list 'load-path "~/.emacs.d/evil")
 (require 'evil)
 (evil-mode 1)
 

@@ -1,0 +1,11 @@
+#!/bin/bash
+# A backup list of my Emacs packages
+# Author: Henry Newcomer
+
+mkdir -p ~/.emacs.d
+cd ~/.emacs.d
+
+# Download files
+git clone https://github.com/emacs-evil/evil.git evil
+
+# eof
