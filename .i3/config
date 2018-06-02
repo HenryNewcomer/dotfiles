@@ -1,10 +1,59 @@
-#
+#############################
 # Henry's i3 config file
+#############################
 
-# Sets the default $mod key
+
+# Sets the default $mod key to the Windows key
 set $mod Mod4
 
-# Vim-like :)
+
+#############################
+# Custom Keybindings
+#############################
+
+# $mod+...
+bindsym $mod+o exec termite -e ranger
+
+# $mod+Shift+...
+bindsym $mod+Shift+b exec qutebrowser
+bindsym $mod+Shift+e exec emacs
+bindsym $mod+Shift+i exec firefox
+bindsym $mod+Shift+x exec ./bin/i3lockblur
+
+# $mod+Ctrl+...
+bindsym $mod+Ctrl+v exec termite -e vim
+
+# $mod+Shift+Ctrl+...
+bindsym $mod+Shift+Ctrl+x exit
+
+
+#############################
+# Assign workspaces
+#############################
+
+assign [class="Firefox"] $workspace2
+assign [class="qutebrowser"] $workspace3
+assign [class="Thunderbird"] $workspace10
+
+
+#############################
+# Auto-start
+#############################
+
+exec_always feh --bg-center /home/henry/Pictures/wallpaper.jpg
+# Remap the Caps Lock >.>
+exec_always xmodmap ~/.xmodmap
+
+exec termite
+exec firefox
+#exec thunderbird
+
+
+#############################
+# Miscellaneous
+#############################
+
+# Use vim-like navigation
 set $up         k
 set $down       j
 set $left       h
@@ -13,7 +62,11 @@ set $right      l
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 #font pango:Clear Sans 10
-font pango:Lato 11
+font pango:Hack 9
+
+
+################################
+# vvv Mostly auto-configured vvv
 
 ########## Autolaunch ##########
 exec --no-startup-id nm-applet
@@ -216,56 +269,15 @@ client.background       #404552
 
 ########## i3-gaps integration ##########
 
-for_window [class="^.*"] border pixel 5
+for_window [class="^.*"] border pixel 2
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [title="Preferences$"] floating enable
 
 smart_borders no_gaps
 smart_gaps on
-gaps inner 10
+gaps inner 20
 gaps outer 0
-
-
-#############################
-# Custom Keybindings
-#############################
-
-# $mod+...
-bindsym $mod+o exec termite -e ranger
-
-# $mod+Shift+...
-bindsym $mod+Shift+b exec qutebrowser
-bindsym $mod+Shift+e exec emacs
-bindsym $mod+Shift+i exec firefox
-bindsym $mod+Shift+x exec ./bin/i3lockblur
-
-# $mod+Ctrl+...
-bindsym $mod+Ctrl+v exec termite -e vim
-
-# $mod+Shift+Ctrl+...
-bindsym $mod+Shift+Ctrl+x exit
-
-#############################
-# Assign workspaces
-#############################
-
-assign [class="Firefox"] $workspace2
-assign [class="qutebrowser"] $workspace3
-assign [class="Thunderbird"] $workspace10
-
-
-#############################
-# Auto-start
-#############################
-
-#exec_always feh --bg-center /home/henry/Pictures/wallpaper.png
-# Remap the Caps Lock >.>
-exec_always xmodmap ~/.xmodmap
-
-exec termite
-exec firefox
-#exec thunderbird
 
 #############################
 # EoF
