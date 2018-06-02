@@ -250,7 +250,7 @@ bar {
         position top
 
         colors {
-            background #404552
+            background #18222c
 
             focused_workspace #3685e2 #3685e2 #fafafa
             active_workspace #5294e2 #5294e2 #fafafa
@@ -261,10 +261,11 @@ bar {
 
 ########## Styling ##########
 
-client.focused          #404552 #404552 #fafafa #ff5757 #fafafa
-client.focused_inactive #666666 #404552 #eeeeee #666666 #666666
-client.unfocused        #404552 #484b52 #eeeeee #ff5757 #404552
-client.urgent           #ff5757 #404552 #ffffff #555757 #404552
+# <colorclass>         <border> <bg> <text> <indicator> <child_border>
+client.focused          #5a6f77 #18222c #b6d3e3 #536991 #b6d3e3
+client.focused_inactive #ff0000 #ff0000 #b6d3e3 #6b7e8f #12171c
+client.unfocused        #ff0000 #ff0000 #ff0000 #ff0000 #12171c
+client.urgent           #ff0000 #ff0000 #ff0000 #00ff00 #7bb58a
 client.background       #404552
 
 ########## i3-gaps integration ##########
