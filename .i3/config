@@ -25,6 +25,7 @@ bindsym $mod+Ctrl+v exec termite -e vim
 
 # $mod+Shift+Ctrl+...
 bindsym $mod+Shift+Ctrl+x exit
+bindsym $mod+Shift+Ctrl+z exec termite -e *shutdown now*
 
 #############################
 # Assign workspaces
@@ -180,7 +181,7 @@ bindsym $mod+minus scratchpad show
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $workspace1  "1) Developer "
+set $workspace1  "1) Development "
 set $workspace2  "2) Firefox "
 set $workspace3  "3) Qutebrowser "
 set $workspace4  "4"

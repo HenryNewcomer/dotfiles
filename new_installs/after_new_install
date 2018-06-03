@@ -248,8 +248,9 @@ installer ntp
 
 # Fonts
 installer ttf-font-awesome
-installer ttf-linux-libertine
 installer ttf-inconsolata
+installer ttf-linux-libertine
+installer ttf-ubuntu-family
 installer noto-fonts
 installer fonts-powerline
 installer powerline-fonts

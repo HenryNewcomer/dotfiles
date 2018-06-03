@@ -26,11 +26,13 @@
 
 ;; Evil mode
 (add-to-list 'load-path "~/.emacs.d/evil")
+(setq evil-want-C-u-scroll t)
 (require 'evil)
 (evil-mode 1)
 
 ;; Undo Tree
-(global-undo-tree-mode)
+;;(add-to-list 'load-path "~/.emacs.d/undo-tree")
+;;(global-undo-tree-mode)
 
 ;; =================================
 ;;   Set default settings
