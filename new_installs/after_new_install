@@ -112,6 +112,25 @@ function installer() {
   fi
 }
 
+function yaourtInstall() {
+  echo "Creating directories for Yaourt installation..."
+  mkdir -p ~/Downloads/temp/yaourt-installation
+  cd ~/Downloads/temp/yaourt-installation
+  # Source: https://archlinux.fr/yaourt-en
+  git clone https://aur.archlinux.org/package-query.git
+  cd package-query
+  makepkg -si
+  cd ..
+  git clone https://aur.archlinux.org/yaourt.git
+  cd yaourt
+  makepkg -si
+  cd ..
+  yaourt
+  yaourt -Syu --devel --aur
+  # Cleanup
+  rm -rf ~/Downloads/temp
+}
+
 #while [[ $awaiting ]]
 #do
 #  echo "testing: press y to quit, n to loop"
@@ -259,6 +278,11 @@ installer powerline-fonts
 installer neofetch
 sudo npm install cowsay
 installer sl
+
+# If using Arch, install Yaourt
+if [[ $distro == "arch" ]]; then
+  yaourtInstall
+fi
 
 ###############################################
 # Done with installers                        #
