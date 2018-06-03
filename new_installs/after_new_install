@@ -266,6 +266,7 @@ installer imagemagick
 installer ntp
 
 # Fonts
+installer ttf-fira-mono
 installer ttf-font-awesome
 installer ttf-inconsolata
 installer ttf-linux-libertine
