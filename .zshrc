@@ -53,6 +53,8 @@ alias www="live-server"
 # Dotfiles locations
 alias dot="cd /hdd/_Backups/Linux/dotfiles"
 alias dotlap="cd ~/Dev/Linux/dotfiles"
+alias eilap="vim ~/Dev/Linux/dotfiles/new_installs/after_new_install"
+alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
 
 # Git
 alias gaa="git add -A"
