@@ -11,7 +11,7 @@ set $mod Mod4
 # Custom Keybindings
 #############################
 
-# TODO: Add keybinding to change gapps padding and reset it back to the default
+# TODO: Add keybinding to change i3-gaps padding and reset it back to the default
 
 # $mod+...
 bindsym $mod+b exec qutebrowser
@@ -38,6 +38,11 @@ assign [class="Emacs"] $workspace1
 assign [class="Firefox"] $workspace2
 assign [class="qutebrowser"] $workspace3
 assign [class="Thunderbird"] $workspace10
+
+#############################
+# Focus workspaces
+#############################
+for_window [class="Firefox"] focus
 
 #############################
 # Auto-start

@@ -1,4 +1,5 @@
 [options]
+#font = Fira Mono 11
 font = Hack 9
 
 ########################
