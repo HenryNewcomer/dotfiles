@@ -229,6 +229,7 @@ installer fileftp
 installer thunderbird
 
 # Extra software
+installer filezilla
 sudo npm install -g vtop
 installer htop
 # A simplistic color picker
