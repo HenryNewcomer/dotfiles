@@ -21,6 +21,7 @@ bindsym $mod+i exec firefox
 bindsym $mod+o exec termite -e ranger
 
 # $mod+Shift+...
+bindsym $mod+Shift+f exec filezilla
 bindsym $mod+Shift+x exec ./bin/i3lockblur
 
 # $mod+Ctrl+...
@@ -36,6 +37,7 @@ bindsym $mod+Shift+Ctrl+z exec systemctl poweroff
 
 assign [class="Emacs"] $workspace1
 assign [class="Firefox"] $workspace2
+assign [class="Filezilla"] $workspace8
 assign [class="qutebrowser"] $workspace9
 assign [class="Thunderbird"] $workspace10
 
@@ -44,6 +46,7 @@ assign [class="Thunderbird"] $workspace10
 #############################
 
 for_window [class="Emacs"] focus
+for_window [class="Filezilla"] focus
 for_window [class="Firefox"] focus
 for_window [class="qutebrowser"] focus
 
@@ -194,13 +197,13 @@ bindsym $mod+minus scratchpad show
 # We use variables to avoid repeating the names in multiple places.
 set $workspace1  "1) Development "
 set $workspace2  "2) Firefox "
-set $workspace3  "3)"
-set $workspace4  "4"
-set $workspace5  "5"
-set $workspace6  "6"
-set $workspace7  "7"
-set $workspace8  "8"
-set $workspace9  "9 Qutebrowser "
+set $workspace3  "3) "
+set $workspace4  "4) "
+set $workspace5  "5) "
+set $workspace6  "6) "
+set $workspace7  "7) "
+set $workspace8  "8) Filezilla "
+set $workspace9  "9) Qutebrowser "
 set $workspace10 "10) Thunderbird "
 
 
