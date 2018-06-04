@@ -39,8 +39,8 @@
 ;; =================================
 
 ;; Disable the tool & menu bars
-(menu-bar-mode nil)
-(tool-bar-mode nil)
+(menu-bar-mode -1)
+(tool-bar-mode -1)
 
 (custom-set-variables
  '(ansi-color-names-vector
