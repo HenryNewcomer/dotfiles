@@ -36,7 +36,7 @@ bindsym $mod+Shift+Ctrl+z exec systemctl poweroff
 
 assign [class="Emacs"] $workspace1
 assign [class="Firefox"] $workspace2
-assign [class="qutebrowser"] $workspace3
+assign [class="qutebrowser"] $workspace9
 assign [class="Thunderbird"] $workspace10
 
 #############################
@@ -194,13 +194,13 @@ bindsym $mod+minus scratchpad show
 # We use variables to avoid repeating the names in multiple places.
 set $workspace1  "1) Development "
 set $workspace2  "2) Firefox "
-set $workspace3  "3) Qutebrowser "
+set $workspace3  "3)"
 set $workspace4  "4"
 set $workspace5  "5"
 set $workspace6  "6"
 set $workspace7  "7"
 set $workspace8  "8"
-set $workspace9  "9"
+set $workspace9  "9 Qutebrowser "
 set $workspace10 "10) Thunderbird "
 
 
