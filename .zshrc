@@ -42,6 +42,9 @@ alias ee="vim ~/.emacs"
 # Solus OS specific; check for upgrades
 alias upg="sudo eopkg upgrade"
 
+# Arch: installed packages via yaourt
+alias yp="yaourt -Qm"
+
 # Reload source (zsh)
 alias rz="source ~/.zshrc"
 # Clear the Zsh history

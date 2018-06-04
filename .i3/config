@@ -28,7 +28,7 @@ bindsym $mod+Ctrl+v exec termite -e vim
 
 # $mod+Shift+Ctrl+...
 bindsym $mod+Shift+Ctrl+x exit
-bindsym $mod+Shift+Ctrl+z exec termite -e *shutdown now*
+bindsym $mod+Shift+Ctrl+z exec systemctl poweroff
 
 #############################
 # Assign workspaces
@@ -42,7 +42,10 @@ assign [class="Thunderbird"] $workspace10
 #############################
 # Focus workspaces
 #############################
+
+for_window [class="Emacs"] focus
 for_window [class="Firefox"] focus
+for_window [class="qutebrowser"] focus
 
 #############################
 # Auto-start
