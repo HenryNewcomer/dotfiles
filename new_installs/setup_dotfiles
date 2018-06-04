@@ -3,12 +3,14 @@
 # Description: Creates symlinks from ~/ to ~/dotfiles dir
 # Author: Henry Newcomer
 
-# An array of directories to create
-dirs_to_create=( "bin" ".config" ".config/termite" ".fonts" ".i3" )
 # An array of filenames
-files=( "bin/i3lockblur" ".config/termite/config" ".config/compton.conf" \
+files=( "bin/i3lockblur" \
+  ".config/i3status/config" ".config/termite/config" ".config/compton.conf" \
   ".i3/config" ".emacs" ".gitconfig" ".tmux.conf" ".vimrc" ".xinitrc" \
   ".xmodmap" ".zprofile" ".zshrc" )
+# An array of directories to create
+dirs_to_create=( "bin" ".config" ".config/termite" ".fonts" ".i3" )
+
 MAIN_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 

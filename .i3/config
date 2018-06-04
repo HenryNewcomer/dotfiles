@@ -17,10 +17,10 @@ set $mod Mod4
 bindsym $mod+b exec qutebrowser
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+e exec emacs
+bindsym $mod+i exec firefox
 bindsym $mod+o exec termite -e ranger
 
 # $mod+Shift+...
-bindsym $mod+Shift+i exec firefox
 bindsym $mod+Shift+x exec ./bin/i3lockblur
 
 # $mod+Ctrl+...
