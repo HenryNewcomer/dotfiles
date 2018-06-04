@@ -38,9 +38,9 @@
 ;;   Set default settings
 ;; =================================
 
-
-(menu-bar-mode -1) ;; Disable menu bar
-
+;; Disable the tool & menu bars
+(menu-bar-mode nil)
+(tool-bar-mode nil)
 
 (custom-set-variables
  '(ansi-color-names-vector
