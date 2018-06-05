@@ -2,11 +2,12 @@
 # A backup list of my Emacs packages
 # Author: Henry Newcomer
 
-mkdir -p ~/.emacs.d
-cd ~/.emacs.d
+mkdir -p ~/.emacs.d/from_backup
+cd ~/.emacs.d/from_backup
 
 # Download files
 git clone https://github.com/emacs-evil/evil.git
 git clone http://www.dr-qubit.org/git/undo-tree.git
+git clone https://github.com/sabof/org-bullets.git
 
 # eof
