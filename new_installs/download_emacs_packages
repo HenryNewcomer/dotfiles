@@ -7,7 +7,8 @@ cd ~/.emacs.d/from_backup
 
 # Download files
 git clone https://github.com/emacs-evil/evil.git
-git clone http://www.dr-qubit.org/git/undo-tree.git
 git clone https://github.com/sabof/org-bullets.git
+git clone https://github.com/ejmr/php-mode.git
+git clone http://www.dr-qubit.org/git/undo-tree.git
 
 # eof
