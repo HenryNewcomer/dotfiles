@@ -5,6 +5,12 @@
 ;; ****************************************************************************
 ;; ============================================================================
 
+;; Disable the tool & menu bars
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+;; Open Emacs as fullscreen by default
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; =================================
 ;;   Repositories
 ;; =================================
@@ -46,16 +52,10 @@
 (add-to-list 'load-path "~/.emacs.d/from_backup/php-mode")
 (require 'php-mode)
 
+
 ;; =================================
 ;;   Set default settings
 ;; =================================
-
-;; Disable the tool & menu bars
-(menu-bar-mode -1)
-(tool-bar-mode -1)
-
-;; Open Emacs as fullscreen by default
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 (custom-set-variables
  '(ansi-color-names-vector
