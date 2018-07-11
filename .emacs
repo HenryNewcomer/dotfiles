@@ -63,6 +63,10 @@
  '(custom-enabled-themes (quote (deeper-blue))))
 (custom-set-faces)
 
+;; Enable recent mode
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
 ;; =================================
 ;; eof
