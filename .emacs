@@ -8,6 +8,8 @@
 ;; Disable the tool & menu bars
 (menu-bar-mode -1)
 (tool-bar-mode -1)
+;; Disable welcome screen
+(setq inhibit-startup-screen t)
 ;; Open Emacs as fullscreen by default
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
