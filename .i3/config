@@ -28,8 +28,9 @@ bindsym $mod+Shift+x exec ./bin/i3lockblur
 bindsym $mod+Ctrl+v exec termite -e vim
 
 # $mod+Shift+Ctrl+...
-bindsym $mod+Shift+Ctrl+x exit
-bindsym $mod+Shift+Ctrl+z exec systemctl poweroff
+bindsym $mod+Shift+Ctrl+l exit
+bindsym $mod+Shift+Ctrl+x exec systemctl poweroff
+bindsym $mod+Shift+Ctrl+z exec systemctl suspend
 
 #############################
 # Assign workspaces
