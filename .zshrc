@@ -59,6 +59,9 @@ alias dotlap="cd ~/Dev/Linux/dotfiles"
 alias eilap="vim ~/Dev/Linux/dotfiles/new_installs/after_new_install"
 alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
 
+# Personal website location (on Desktop)
+alias hn="cd /hdd/Development/henrynewcomer"
+
 # Git
 alias gaa="git add -A"
 alias gs="git status"
