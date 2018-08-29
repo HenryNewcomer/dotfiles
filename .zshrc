@@ -58,6 +58,8 @@ alias dot="cd /hdd/_Backups/Linux/dotfiles"
 alias dotlap="cd ~/Dev/Linux/dotfiles"
 alias eilap="vim ~/Dev/Linux/dotfiles/new_installs/after_new_install"
 alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
+# Open the Downloads folder
+alias dwn="cd ~/Downloads"
 
 # Personal website location (on Desktop)
 alias hn="cd /hdd/Development/henrynewcomer"
