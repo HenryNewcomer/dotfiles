@@ -240,7 +240,7 @@ nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>tty :terminal<CR>
 " Deletes the current search highlight
 nnoremap <silent> <Leader>ds :noh<CR>:echo "Cleared search string"<CR>
-" Makes adding new lines a bit more user-friendly
+" Don't automatically enter Insert Mode when using o / O
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 " Toggle word wrapping
@@ -279,6 +279,8 @@ nnoremap <Leader><Leader> i <Esc>
 " Move to the first or last character within a line
 nnoremap <Leader>h ^
 nnoremap <Leader>l $
+" Find & Replace
+nnoremap <Leader>fr :%s//g<Left><Left>
 " Easier system copy & paste
 nnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
