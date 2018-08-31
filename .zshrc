@@ -70,9 +70,9 @@ alias gaa="git add -A"
 alias gs="git status"
 alias gu="git push"
 alias gd="git pull"
-alias gc="git commit -m "
-alias gl="git ls-files"
 alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
+alias gls="git ls-files"
+alias gm="git commit -m "
 # Since I tend to type this on accident, specify what I mean
 alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
 
