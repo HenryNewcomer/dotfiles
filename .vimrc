@@ -335,10 +335,10 @@ endfunction
 
 " Disable arrow movement, resize splits instead.
 if get(g:, 'elite_mode')
-    nnoremap <Up>    <Nop>
-    nnoremap <Down>  <Nop>
-    nnoremap <Left>  <Nop>
-    nnoremap <Right> <Nop>
+    nnoremap <Up>    :res             -5<CR>
+    nnoremap <Down>  :res             +5<CR>
+    nnoremap <Left>  :vertical resize -5<CR>
+    nnoremap <Right> :vertical resize +5<CR>
 endif
 
 " Show syntax highlighting groups for word under cursor
@@ -356,5 +356,9 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m
   command! -nargs=+ -bang Ag silent! grep <args> | redraw! | botright copen
 endif
+
+" Generate help tags for plugins
+packloadall
+silent! helptags ALL
 
 " EoF
