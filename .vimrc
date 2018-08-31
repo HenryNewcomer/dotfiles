@@ -259,13 +259,14 @@ cabbrev W write
 " Trim (trailing) whitespace
 nnoremap <silent> <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
 " Easier split navigation
-" Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
-nnoremap <Leader>sv :vnew<CR>
-nnoremap <Leader>sh :new<CR>
-nnoremap <Leader><C-h> <C-w><C-h>
-nnoremap <Leader><C-j> <C-w><C-j>
-nnoremap <Leader><C-k> <C-w><C-k>
-nnoremap <Leader><C-l> <C-w><C-l>
+nnoremap <Leader>nh :new<CR>
+nnoremap <Leader>sh :split<CR>
+nnoremap <Leader>nv :vnew<CR>
+nnoremap <Leader>sv :vsplit<CR>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <silent> <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
 " Updates the .vimrc source file
@@ -337,14 +338,16 @@ function! ToggleTermGuiColors()
 endfunction
 
 " Disable arrow movement, resize splits instead.
+" Think of these as increasing/decreasing the height/width of the focused split
 if get(g:, 'elite_mode')
-    nnoremap <Up>    :res             -5<CR>
-    nnoremap <Down>  :res             +5<CR>
+    nnoremap <Up>    :res             +5<CR>
+    nnoremap <Down>  :res             -5<CR>
     nnoremap <Left>  :vertical resize -5<CR>
     nnoremap <Right> :vertical resize +5<CR>
 endif
 
 " Show syntax highlighting groups for word under cursor
+" (Useful for developing themes)
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
