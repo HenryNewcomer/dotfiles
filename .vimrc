@@ -73,6 +73,11 @@ Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer' " Allows hex values to show their color representation visually
   nnoremap <Leader>hc :ColorToggle<CR>
   nnoremap <Leader>ht :RGB2Term #
+" A color selector
+Plug 'KabbAmine/vCoolor.vim'
+  let g:vcoolor_lowercase = 1
+  let g:vcoolor_disable_mappings = 1
+  let g:vcoolor_map = '<leader>c'
 "Plug 'nathanaelkane/vim-indent-guides' " Indent Guides (thicker/more colorful)
   "let g:indent_guides_enable_on_vim_startup = 1
 Plug 'yggdroot/indentline'
