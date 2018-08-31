@@ -292,6 +292,7 @@ nnoremap <Leader>h ^
 nnoremap <Leader>l $
 " Find & Replace
 nnoremap <Leader>fr :%s//g<Left><Left>
+vnoremap <Leader>fr :s//g<Left><Left>
 " Easier system copy & paste
 nnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
