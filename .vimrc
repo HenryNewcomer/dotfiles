@@ -77,8 +77,9 @@ Plug 'chrisbra/Colorizer' " Allows hex values to show their color representation
 Plug 'KabbAmine/vCoolor.vim'
   let g:vcoolor_lowercase = 1
   "let g:vcoolor_disable_mappings = 1
-  let g:vcoolor_map = '<Leader>c'
-  "inoremap <C-c> <Esc>:VCoolor<CR>i
+  "let g:vcoolor_map = '<Leader>c'
+  nnoremap <Leader>c :VCoolor<CR>
+  inoremap <C-c> <Esc>:VCoolor<CR>i
 "Plug 'nathanaelkane/vim-indent-guides' " Indent Guides (thicker/more colorful)
   "let g:indent_guides_enable_on_vim_startup = 1
 Plug 'yggdroot/indentline'
