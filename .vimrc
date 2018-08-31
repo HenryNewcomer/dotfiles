@@ -22,6 +22,9 @@ call plug#begin('~/.vim/vim_plugs')
 " =-=-=-=-=-=-=-=-=-=
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Only start loading when first called
+  " Close Vim if NERDTree is the only window open
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  let NERDTreeQuitOnOpen = 1
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
