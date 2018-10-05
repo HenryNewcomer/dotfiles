@@ -267,6 +267,7 @@ elseif g:os == "Windows"
     set backupdir=C:\WINDOWS\Temp
     set backupskip=C:\WINDOWS\Temp\*
     set directory=C:\WINDOWS\Temp
+    set undodir=C:\WINDOWS\Temp
     set writebackup
 endif
 
