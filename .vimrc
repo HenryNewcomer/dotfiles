@@ -236,7 +236,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent
-set modifiable
+set modifiable " This was added to get retab to work on my Windows OS
 retab
 " Cursor config
 set guicursor=n-v-c:block-Cursor
@@ -248,15 +248,17 @@ set history=1000
 set noswapfile
 set backup
 set undofile
-set backupdir=~/.vim/dirs/backup
-  if !isdirectory(&backupdir)
-    call mkdir(&backupdir, "p")
-  endif
-set undodir=~/.vim/dirs/undo
-  if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
-  endif
-"set directory=/tmp " TODO: Do I need this?
+if g:os == "Linux"
+  set backupdir=~/.vim/dirs/backup
+    if !isdirectory(&backupdir)
+      call mkdir(&backupdir, "p")
+    endif
+  set undodir=~/.vim/dirs/undo
+    if !isdirectory(&undodir)
+      call mkdir(&undodir, "p")
+    endif
+  "set directory=/tmp " TODO: Do I need this?
+endif
 
 " TODO: Testing to see if I want this setting
 set breakindent
