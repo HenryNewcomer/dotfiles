@@ -230,9 +230,6 @@ set list
 if g:os == "Linux"
     set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
     set showbreak=↪\ " When word wrapping is enabled
-elseif g:os == "Windows"
-    set list listchars=trail:!,nbsp:~,precedes:←,extends:→
-    set showbreak=!\ " When word wrapping is enabled
 endif
 " <TAB> related
 set tabstop=4
