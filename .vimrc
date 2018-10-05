@@ -227,8 +227,10 @@ let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop
 let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
 " Visible indicators
 set list
-set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
-set showbreak=↪\ " When word wrapping is enabled
+if g:os == "Linux"
+    set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
+    set showbreak=↪\ " When word wrapping is enabled
+endif
 " <TAB> related
 set tabstop=4
 set softtabstop=0
