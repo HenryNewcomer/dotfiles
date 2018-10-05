@@ -1,4 +1,4 @@
-" ================================================================
+﻿" ================================================================
 "                       Henry's Vim Config
 " ================================================================
 
@@ -7,14 +7,38 @@ set encoding=UTF-8
 let mapleader = " "
 filetype plugin on
 
-" Installs Vim Plug if it's not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" Detect OS
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
 endif
-" Starts Vim Plug
-call plug#begin('~/.vim/vim_plugs')
+
+" Installs Vim Plug if it's not found
+if g:os == "Windows"
+    if empty(glob('~\vimfiles\autoload\plug.vim'))
+        md ~\vimfiles\autoload
+        $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        (New-Object Net.WebClient).DownloadFile(
+          $uri,
+          $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
+            "~\vimfiles\autoload\plug.vim"
+          )
+        )
+    endif
+    " Starts Vim Plug
+    call plug#begin('~\vimfiles\vim_plugs')
+elseif g:os == "Linux"
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+    " Starts Vim Plug
+    call plug#begin('~/.vim/vim_plugs')
+endif
 
 
 " =-=-=-=-=-=-=-=-=-=
@@ -212,6 +236,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent
+set modifiable
 retab
 " Cursor config
 set guicursor=n-v-c:block-Cursor
