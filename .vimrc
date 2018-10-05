@@ -270,9 +270,27 @@ elseif g:os == "Windows"
     set undodir=C:\WINDOWS\Temp
     set writebackup
 endif
+set breakindent     " TODO: Testing to see if I want this setting
 
-" TODO: Testing to see if I want this setting
-set breakindent
+if has("gui_running")
+  " GUI: Force larger window"
+  set lines=999 columns=999
+  set guioptions-=m " Removes the menu bar
+  set guioptions-=T " Removes the toolbar
+  set guioptions-=r " Removes the right-hand scroll bar
+  set guioptions-=L " Removes left-hand scroll bar
+  if g:os == "Windows"
+    set guifont=Lucida_Console:h10:cANSI
+  endif
+else
+  " Console
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
 
 
 " =-=-=-=-=-=-=-=-=-=
