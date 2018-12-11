@@ -190,6 +190,8 @@ sudo npm install npm@latest -g
 #sudo apt-get install -y nodejs
 # NPM
 installer npm # Required for vtop
+# Just in case, double-check that npm is using the newest version
+sudo npm install -g npm
 
 ##################
 ### TERMINALS (start)
@@ -227,6 +229,12 @@ installer gimp
 installer gparted
 installer fileftp
 installer thunderbird
+
+# Emacs :)
+installer emacs
+# These are required for the Flycheck plugin
+sudo pip install pylint
+sudo npm install eslint
 
 # Extra software
 installer filezilla
