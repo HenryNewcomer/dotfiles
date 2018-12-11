@@ -1,4 +1,4 @@
-" ================================================================
+﻿" ================================================================
 "                       Henry's Vim Config
 " ================================================================
 
@@ -7,14 +7,38 @@ set encoding=UTF-8
 let mapleader = " "
 filetype plugin on
 
-" Installs Vim Plug if it's not found
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+" Detect OS
+if !exists("g:os")
+    if has("win64") || has("win32") || has("win16")
+        let g:os = "Windows"
+    else
+        let g:os = substitute(system('uname'), '\n', '', '')
+    endif
 endif
-" Starts Vim Plug
-call plug#begin('~/.vim/vim_plugs')
+
+" Installs Vim Plug if it's not found
+if g:os == "Windows"
+    if empty(glob('~\vimfiles\autoload\plug.vim'))
+        md ~\vimfiles\autoload
+        $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+        (New-Object Net.WebClient).DownloadFile(
+          $uri,
+          $ExecutionContext.SessionState.Path.GetUnresolvedProviderPathFromPSPath(
+            "~\vimfiles\autoload\plug.vim"
+          )
+        )
+    endif
+    " Starts Vim Plug
+    call plug#begin('~\vimfiles\vim_plugs')
+elseif g:os == "Linux"
+    if empty(glob('~/.vim/autoload/plug.vim'))
+      silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+      autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    endif
+    " Starts Vim Plug
+    call plug#begin('~/.vim/vim_plugs')
+endif
 
 
 " =-=-=-=-=-=-=-=-=-=
@@ -22,6 +46,9 @@ call plug#begin('~/.vim/vim_plugs')
 " =-=-=-=-=-=-=-=-=-=
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' } " Only start loading when first called
+  " Close Vim if NERDTree is the only window open
+  autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+  let NERDTreeQuitOnOpen = 1
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -70,6 +97,13 @@ Plug 'alvan/vim-closetag'
 Plug 'chrisbra/Colorizer' " Allows hex values to show their color representation visually
   nnoremap <Leader>hc :ColorToggle<CR>
   nnoremap <Leader>ht :RGB2Term #
+" A color selector
+Plug 'KabbAmine/vCoolor.vim'
+  let g:vcoolor_lowercase = 1
+  "let g:vcoolor_disable_mappings = 1
+  "let g:vcoolor_map = '<Leader>c'
+  nnoremap <Leader>c :VCoolor<CR>
+  inoremap <C-c> <Esc>:VCoolor<CR>i
 "Plug 'nathanaelkane/vim-indent-guides' " Indent Guides (thicker/more colorful)
   "let g:indent_guides_enable_on_vim_startup = 1
 Plug 'yggdroot/indentline'
@@ -193,8 +227,13 @@ let &path.="src/include,/usr/include" " Useful when using the 'gf' command ontop
 let g:elite_mode=1 " Enable 'Elite mode' (no arrows!)
 " Visible indicators
 set list
-set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
-set showbreak=↪\ " When word wrapping is enabled
+if g:os == "Linux"
+    set list listchars=trail:␣,nbsp:~,precedes:←,extends:→
+    set showbreak=↪\ " When word wrapping is enabled
+elseif g:os == "Windows"
+    set list listchars=trail:!,nbsp:~,precedes:←,extends:→
+    set showbreak=!\ " When word wrapping is enabled
+endif
 " <TAB> related
 set tabstop=4
 set softtabstop=0
@@ -202,6 +241,7 @@ set shiftwidth=4
 set expandtab
 set smarttab
 set autoindent
+set modifiable " This was added to get retab to work on my Windows OS
 retab
 " Cursor config
 set guicursor=n-v-c:block-Cursor
@@ -213,18 +253,44 @@ set history=1000
 set noswapfile
 set backup
 set undofile
-set backupdir=~/.vim/dirs/backup
-  if !isdirectory(&backupdir)
-    call mkdir(&backupdir, "p")
-  endif
-set undodir=~/.vim/dirs/undo
-  if !isdirectory(&undodir)
-    call mkdir(&undodir, "p")
-  endif
-"set directory=/tmp " TODO: Do I need this?
+if g:os == "Linux"
+  set backupdir=~/.vim/dirs/backup
+    if !isdirectory(&backupdir)
+      call mkdir(&backupdir, "p")
+    endif
+  set undodir=~/.vim/dirs/undo
+    if !isdirectory(&undodir)
+      call mkdir(&undodir, "p")
+    endif
+  "set directory=/tmp " TODO: Do I need this?
+elseif g:os == "Windows"
+    set backupdir=C:\WINDOWS\Temp
+    set backupskip=C:\WINDOWS\Temp\*
+    set directory=C:\WINDOWS\Temp
+    set undodir=C:\WINDOWS\Temp
+    set writebackup
+endif
+set breakindent     " TODO: Testing to see if I want this setting
 
-" TODO: Testing to see if I want this setting
-set breakindent
+if has("gui_running")
+  " GUI: Force larger window"
+  set lines=999 columns=999
+  set guioptions-=m " Removes the menu bar
+  set guioptions-=T " Removes the toolbar
+  set guioptions-=r " Removes the right-hand scroll bar
+  set guioptions-=L " Removes left-hand scroll bar
+  if g:os == "Windows"
+    set guifont=Lucida_Console:h10:cANSI
+  endif
+else
+  " Console
+  if exists("+lines")
+    set lines=50
+  endif
+  if exists("+columns")
+    set columns=100
+  endif
+endif
 
 
 " =-=-=-=-=-=-=-=-=-=
@@ -240,7 +306,7 @@ nnoremap <Leader>pu :PlugUpdate<CR>
 nnoremap <Leader>tty :terminal<CR>
 " Deletes the current search highlight
 nnoremap <silent> <Leader>ds :noh<CR>:echo "Cleared search string"<CR>
-" Makes adding new lines a bit more user-friendly
+" Don't automatically enter Insert Mode when using o / O
 nnoremap o o<Esc>
 nnoremap O O<Esc>
 " Toggle word wrapping
@@ -256,13 +322,14 @@ cabbrev W write
 " Trim (trailing) whitespace
 nnoremap <silent> <Leader>tw :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>:echo "Trimmed trailing whitespace."<CR>
 " Easier split navigation
-" Note that CTRL+h/j/k/l is reserved for Tmux unless <Leader> is used
-nnoremap <Leader>sv :vnew<CR>
-nnoremap <Leader>sh :new<CR>
-nnoremap <Leader><C-h> <C-w><C-h>
-nnoremap <Leader><C-j> <C-w><C-j>
-nnoremap <Leader><C-k> <C-w><C-k>
-nnoremap <Leader><C-l> <C-w><C-l>
+nnoremap <Leader>nh :new<CR>
+nnoremap <Leader>sh :split<CR>
+nnoremap <Leader>nv :vnew<CR>
+nnoremap <Leader>sv :vsplit<CR>
+nnoremap <C-h> <C-w><C-h>
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
 " Allows vim to easily open a split and edit the .vimrc file
 nnoremap <silent> <Leader>ev :vsplit $MYVIMRC<CR>:echo "Opening .vimrc file"<CR>
 " Updates the .vimrc source file
@@ -279,6 +346,9 @@ nnoremap <Leader><Leader> i <Esc>
 " Move to the first or last character within a line
 nnoremap <Leader>h ^
 nnoremap <Leader>l $
+" Find & Replace
+nnoremap <Leader>fr :%s//g<Left><Left>
+vnoremap <Leader>fr :s//g<Left><Left>
 " Easier system copy & paste
 nnoremap <Leader>y "*y
 nnoremap <Leader>Y "*Y
@@ -304,6 +374,10 @@ inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>
 autocmd FileType vim set tabstop=2 softtabstop=0 shiftwidth=2
 autocmd FileType sh  set tabstop=2 softtabstop=0 shiftwidth=2
 autocmd FileType css set tabstop=2 softtabstop=0 shiftwidth=2
+<<<<<<< HEAD
+=======
+
+>>>>>>> 370f6a1ffcc3cad70a6834272c5b361d0c33c946
 
 " =-=-=-=-=-=-=-=-=-=
 " EXTRAS
@@ -331,14 +405,16 @@ function! ToggleTermGuiColors()
 endfunction
 
 " Disable arrow movement, resize splits instead.
+" Think of these as increasing/decreasing the height/width of the focused split
 if get(g:, 'elite_mode')
-    nnoremap <Up>    <Nop>
-    nnoremap <Down>  <Nop>
-    nnoremap <Left>  <Nop>
-    nnoremap <Right> <Nop>
+    nnoremap <Up>    :res             +5<CR>
+    nnoremap <Down>  :res             -5<CR>
+    nnoremap <Left>  :vertical resize -5<CR>
+    nnoremap <Right> :vertical resize +5<CR>
 endif
 
 " Show syntax highlighting groups for word under cursor
+" (Useful for developing themes)
 nmap <C-S-P> :call <SID>SynStack()<CR>
 function! <SID>SynStack()
   if !exists("*synstack")
@@ -353,5 +429,9 @@ if executable('ag')
   set grepformat=%f:%l:%c:%m
   command! -nargs=+ -bang Ag silent! grep <args> | redraw! | botright copen
 endif
+
+" Generate help tags for plugins
+packloadall
+silent! helptags ALL
 
 " EoF

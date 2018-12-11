@@ -58,6 +58,8 @@ alias dot="cd /hdd/_Backups/Linux/dotfiles"
 alias dotlap="cd ~/Dev/Linux/dotfiles"
 alias eilap="vim ~/Dev/Linux/dotfiles/new_installs/after_new_install"
 alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
+# Open the Downloads folder
+alias dwn="cd ~/Downloads"
 
 # Personal website location (on Desktop)
 alias hn="cd /hdd/Development/henrynewcomer"
@@ -69,6 +71,8 @@ alias gs="git status"
 alias gu="git push"
 alias gd="git pull"
 alias glog='git log --pretty=format:"[%h] %ae, %ar: %s" --stat'
+alias gls="git ls-files"
+alias gm="git commit -m "
 # Since I tend to type this on accident, specify what I mean
 alias gp="echo 'Unknown alias. Suggestion: Did you mean gu (git upstream) or gd (git downstream)?'"
 
