@@ -1,7 +1,8 @@
 [user]
-	name = HenryNewcomer
-	email = a.cliche.email@gmail.com
+name = HenryNewcomer
+email = a.cliche.email@gmail.com
 [diff]
-	tool = vimdiff
+tool = vimdiff
 [merge]
-	tool = vimdiff
+tool = vimdiff
+
