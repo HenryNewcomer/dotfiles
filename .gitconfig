@@ -1,3 +1,4 @@
+
 [user]
 name = HenryNewcomer
 email = a.cliche.email@gmail.com
@@ -5,4 +6,3 @@ email = a.cliche.email@gmail.com
 tool = vimdiff
 [merge]
 tool = vimdiff
-
