@@ -233,8 +233,8 @@ installer thunderbird
 # Emacs :)
 installer emacs
 # These are required for the Flycheck plugin
-sudo pip install pylint
-sudo npm install eslint
+#sudo pip install pylint
+#sudo npm install eslint
 
 # Extra software
 installer filezilla
@@ -242,6 +242,8 @@ sudo npm install -g vtop
 installer htop
 # A simplistic color picker
 installer gcolor3
+# Better search (also used within Emacs)
+installer ripgrep
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
