@@ -230,20 +230,12 @@ installer gparted
 installer fileftp
 installer thunderbird
 
-# Emacs :)
-installer emacs
-# These are required for the Flycheck plugin
-#sudo pip install pylint
-#sudo npm install eslint
-
 # Extra software
 installer filezilla
 sudo npm install -g vtop
 installer htop
 # A simplistic color picker
 installer gcolor3
-# Better search (also used within Emacs)
-installer ripgrep
 
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -287,9 +279,50 @@ installer fonts-powerline
 installer powerline-fonts
 
 # Extras... Any Linux user obviously needs these
-installer neofetch
-sudo npm install cowsay
-installer sl
+#installer neofetch
+#sudo npm install cowsay
+#installer sl
+
+#################################
+#  Emacs related software  /start
+#################################
+installer emacs
+
+# These are required for the Flycheck plugin
+#sudo pip install pylint
+#sudo npm install eslint
+
+# Better search (also used within Emacs)
+installer ripgrep
+
+# Install (Universal) C-Tags
+git clone https://github.com/universal-ctags/ctags
+cd ctags
+./autogen.sh
+./configure
+make
+sudo make install
+
+# Install Snap if on Arch distro
+# Source: https://docs.snapcraft.io/installing-snap-on-arch-linux/6758
+#if [[ $distro == "arch" ]]; then
+#    echo "Arch distro detected.\nInstalling Snap..."
+
+#    git clone https://aur.archlinux.org/snapd.git
+#    cd snapd
+#    makepkg -si
+
+#    sudo systemctl enable --now snapd.socket
+
+#    sudo ln -s /var/lib/snapd/snap /snap
+#else
+#  echo "!!! Snap wasn't installed. Manually install it!!!"
+#fi
+
+#################################
+#  Emacs related software    /end
+#################################
+
 
 # If using Arch, install Yaourt
 if [[ $distro == "arch" ]]; then
