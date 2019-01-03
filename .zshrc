@@ -66,15 +66,22 @@ alias hn="cd /hdd/Development/henrynewcomer"
 alias hnlap="cd ~/Dev/henrynewcomer"
 
 # Personal project shortcuts/locations (on Linux):
-alias \?cp="cd ~/Dev/C++/simple/pong++"
-alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
-alias \?p="~/Dev/C++/simple/pong++/build/pong++.exe"
 function cpp_pong_full_compile() {
     cd ~/Dev/C++/simple/pong++/build
     cmake ..
     make all
 }
+function cpp_pong_compile_and_run() {
+    cd ~/Dev/C++/simple/pong++/build
+    cmake ..
+    make all
+    ./pong++.exe
+}
+alias \?cp="cd ~/Dev/C++/simple/pong++"
+alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
+alias \?p="~/Dev/C++/simple/pong++/build/pong++.exe"
 alias \?cpc="cpp_pong_full_compile"
+alias \?all="cpp_pong_compile_and_run"
 
 # Compilers
 alias \?cm="cmake .."
