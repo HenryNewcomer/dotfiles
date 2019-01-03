@@ -68,6 +68,7 @@ alias hnlap="cd ~/Dev/henrynewcomer"
 # Personal project shortcuts/locations (on Linux):
 alias \?cp="cd ~/Dev/C++/simple/pong++"
 alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
+alias \?p="~/Dev/C++/simple/pong++/build/pong++.exe"
 function cpp_pong_full_compile() {
     cd ~/Dev/C++/simple/pong++/build
     cmake ..
