@@ -66,13 +66,13 @@ alias hn="cd /hdd/Development/henrynewcomer"
 alias hnlap="cd ~/Dev/henrynewcomer"
 
 # Personal project shortcuts/locations (on Linux):
-alias !cp="cd ~/Dev/C++/simple/pong++"
-alias !cpb="cd ~/Dev/C++/simple/pong++/build"
-alias !cpc="cd ~/Dev/C++/simple/pong++ | cmake .. | make all"
+alias \?cp="cd ~/Dev/C++/simple/pong++"
+alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
+alias \?cpc="cd ~/Dev/C++/simple/pong++ | cmake .. | make all"
 
 # Compilers
-alias !cm="cmake .."
-alias !ma="make all"
+alias \?cm="cmake .."
+alias \?ma="make all"
 
 # Git
 alias gaa="git add -A"
