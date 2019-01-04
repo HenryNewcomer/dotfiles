@@ -42,7 +42,7 @@ bindsym $mod+Shift+Ctrl+z exec systemctl suspend
 #############################
 
 assign [class="Emacs"] $workspace1
-assign [class="Terminal"] $workspace2
+assign [class="Termite"] $workspace2
 assign [class="Firefox"] $workspace3
 assign [class="Filezilla"] $workspace8
 assign [class="qutebrowser"] $workspace9
@@ -53,7 +53,7 @@ assign [class="Thunderbird"] $workspace10
 #############################
 
 for_window [class="Emacs"] focus
-for_window [class="Terminal"] focus
+for_window [class="Termite"] focus
 for_window [class="Filezilla"] focus
 for_window [class="Firefox"] focus
 for_window [class="qutebrowser"] focus
