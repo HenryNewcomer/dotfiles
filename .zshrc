@@ -87,7 +87,7 @@ alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
 alias \?p="~/Dev/C++/simple/pong++/build/pong++.exe"
 alias \?cpc="cpp_pong_full_compile"
 alias \?all="cpp_pong_full_compile_and_run"
-alias \?m="cpp_pong_make_and_run"
+alias \?m="cpp_pong_makefile_and_run"
 
 # Compilers
 alias \?cm="cmake .."
