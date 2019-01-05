@@ -71,9 +71,14 @@ function cpp_pong_full_compile() {
     cmake ..
     make all
 }
-function cpp_pong_compile_and_run() {
+function cpp_pong_full_compile_and_run() {
     cd ~/Dev/C++/simple/pong++/build
     cmake ..
+    make all
+    ./pong++.exe
+}
+function cpp_pong_makefile_and_run() {
+    cd ~/Dev/C++/simple/pong++/build
     make all
     ./pong++.exe
 }
@@ -81,7 +86,8 @@ alias \?cp="cd ~/Dev/C++/simple/pong++"
 alias \?cpb="cd ~/Dev/C++/simple/pong++/build"
 alias \?p="~/Dev/C++/simple/pong++/build/pong++.exe"
 alias \?cpc="cpp_pong_full_compile"
-alias \?all="cpp_pong_compile_and_run"
+alias \?all="cpp_pong_full_compile_and_run"
+alias \?m="cpp_pong_make_and_run"
 
 # Compilers
 alias \?cm="cmake .."
