@@ -31,19 +31,12 @@ bindkey ‘^R’ history-incremental-search-backward
 # Aliases
 # -----------------------------
 
-# Edit (rc/conf) file
-alias ev="vim ~/.vimrc"
-alias ez="vim ~/.zshrc"
-alias ei="vim ~/.i3/config"
-alias et="vim ~/.config/termite/config"
-# lol! blashphemy...
-alias ee="vim ~/.emacs"
-
-# Solus OS specific; check for upgrades
-alias upg="sudo eopkg upgrade"
+alias desk="ssh henry@henry-ubuntu"
 
 # Arch: installed packages via yaourt
 alias yp="yaourt -Qm"
+# Force upgrades
+alias yu="yaourt -Syyua"
 
 # Reload source (zsh)
 alias rz="source ~/.zshrc"
