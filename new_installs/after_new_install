@@ -197,8 +197,6 @@ sudo npm install -g npm
 ### TERMINALS (start)
 ##################
 installer gvim # gVim includes +clipboard on Arch
-#installer tmux
-installer gnome-terminal
 installer zsh
 # Changes the default terminal
 chsh -s /usr/bin/zsh
@@ -287,6 +285,12 @@ installer powerline-fonts
 #  Emacs related software  /start
 #################################
 installer emacs
+
+# Grabs my personal settings
+cd ~/
+git clone https://github.com/HenryNewcomer/.emacs.d.git .emacs.d
+ln -s .emacs.d/.emacs .emacs
+cd ~/Downloads
 
 # These are required for the Flycheck plugin
 #sudo pip install pylint
