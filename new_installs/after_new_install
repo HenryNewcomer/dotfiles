@@ -197,8 +197,6 @@ sudo npm install -g npm
 ### TERMINALS (start)
 ##################
 installer gvim # gVim includes +clipboard on Arch
-#installer tmux
-installer gnome-terminal
 installer zsh
 # Changes the default terminal
 chsh -s /usr/bin/zsh
