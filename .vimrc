@@ -1,4 +1,4 @@
-﻿" ================================================================
+" ================================================================
 "                       Henry's Vim Config
 " ================================================================
 
@@ -374,10 +374,6 @@ inoremap <expr> <C-n> pumvisible() ? "<C-n>" : '<C-n><C-R>=pumvisible() ? "\<lt>
 autocmd FileType vim set tabstop=2 softtabstop=0 shiftwidth=2
 autocmd FileType sh  set tabstop=2 softtabstop=0 shiftwidth=2
 autocmd FileType css set tabstop=2 softtabstop=0 shiftwidth=2
-<<<<<<< HEAD
-=======
-
->>>>>>> 370f6a1ffcc3cad70a6834272c5b361d0c33c946
 
 " =-=-=-=-=-=-=-=-=-=
 " EXTRAS
