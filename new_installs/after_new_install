@@ -286,6 +286,11 @@ installer powerline-fonts
 #################################
 installer emacs
 
+# Grabs my personal settings
+cd ~/
+git clone https://github.com/HenryNewcomer/.emacs.d.git .emacs.d
+cd ~/Downloads
+
 # These are required for the Flycheck plugin
 #sudo pip install pylint
 #sudo npm install eslint
