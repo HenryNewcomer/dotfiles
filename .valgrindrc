@@ -1,0 +1,6 @@
+--memcheck:leak-check=full
+--show-reachable=yes
+--suppressions=/home/linus/.valgrind/sdl2.supp
+--suppressions=/home/linus/.valgrind/i965.supp
+--suppressions=/home/linus/.valgrind/x11.supp
+--suppressions=/home/linus/.valgrind/glx.supp
