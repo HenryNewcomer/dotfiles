@@ -54,6 +54,9 @@ alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
 # Open the Downloads folder
 alias dwn="cd ~/Downloads"
 
+# Create log file for valgrind memory results
+alias pongmem="cd ~/Development/C++/simple/pong++/build/ && valgrind --leak-check=full --gen-suppressions=all --log-file=../logs/valgrind-results.log ./pong++.exe"
+
 # Personal project shortcuts/locations (on Linux):
 alias pong="cd ~/Development/C++/simple/pong++/"
 
