@@ -54,11 +54,9 @@ alias edlap="vim ~/Dev/Linux/dotfiles/new_installs/setup_dotfiles"
 # Open the Downloads folder
 alias dwn="cd ~/Downloads"
 
-# Personal website location (on Desktop)
-alias hn="cd /hdd/Development/henrynewcomer"
-alias hnlap="cd ~/Dev/henrynewcomer"
-
 # Personal project shortcuts/locations (on Linux):
+alias pong="cd ~/Development/C++/simple/pong++/"
+
 function cpp_pong_full_compile() {
     cd ~/Dev/C++/simple/pong++/build
     cmake ..
