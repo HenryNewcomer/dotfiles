@@ -273,8 +273,15 @@ installer ttf-inconsolata
 installer ttf-linux-libertine
 installer ttf-ubuntu-family
 installer noto-fonts
-installer fonts-powerline
-installer powerline-fonts
+#installer fonts-powerline
+#installer powerline-fonts
+
+if [[ $distro == "ubuntu" ]]; then
+    echo "\nInstalling \"Hack\" font from repo."
+    sudo apt install fonts-hack
+    sudo apt install fonts-hack-ttf
+    echo "\n"
+fi
 
 # Extras... Any Linux user obviously needs these
 #installer neofetch
@@ -284,7 +291,18 @@ installer powerline-fonts
 #################################
 #  Emacs related software  /start
 #################################
-installer emacs
+
+
+if [[ $distro == "ubuntu" ]]; then
+    echo "\n------------------------------ "ATTENTION!!! ------------------------------"
+    echo "Instead of grabbing Emacs from Ubuntu repo, download it manually."
+    echo "------------------------------ "ATTENTION!!! ------------------------------\n"
+    echo "Attempting to install required tools for creating Emacs application..."
+
+    sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf gnutils-dev mailutils
+else
+    installer emacs
+fi
 
 # Grabs my personal settings
 cd ~/
