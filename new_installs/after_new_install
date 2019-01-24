@@ -235,6 +235,9 @@ installer htop
 # A simplistic color picker
 installer gcolor3
 
+# SSH packages
+installer ssh
+
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
