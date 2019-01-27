@@ -20,17 +20,13 @@ bindsym $mod+e exec emacs
 bindsym $mod+i exec firefox
 bindsym $mod+o exec termite -e ranger
 # Start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec termite -e fish
 
 # $mod+Shift+...
 bindsym $mod+Shift+f exec filezilla
 bindsym $mod+Shift+z exec ./bin/i3lockblur
 # Kill focused window
 bindsym $mod+Shift+q kill
-
-
-# $mod+Ctrl+...
-bindsym $mod+Ctrl+v exec termite -e vim
 
 # $mod+Shift+Ctrl+...
 bindsym $mod+Shift+Ctrl+l exit
@@ -43,6 +39,7 @@ bindsym $mod+Shift+Ctrl+z exec systemctl suspend
 
 assign [class="Emacs"] $workspace1
 assign [class="Termite"] $workspace2
+assign [class="Fish"] $workspace2
 assign [class="Firefox"] $workspace3
 assign [class="Filezilla"] $workspace8
 assign [class="qutebrowser"] $workspace9
@@ -54,6 +51,7 @@ assign [class="Thunderbird"] $workspace10
 
 for_window [class="Emacs"] focus
 for_window [class="Termite"] focus
+for_window [class="Fish"] focus
 for_window [class="Filezilla"] focus
 for_window [class="Firefox"] focus
 for_window [class="qutebrowser"] focus
