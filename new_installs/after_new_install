@@ -292,16 +292,37 @@ fi
 #installer sl
 
 #################################
+#  SDL2 packages
+#################################
+
+
+if [[ $distro == "ubuntu" ]]; then
+    echo "-- Installing SDL2 packages: --\n\n"
+
+    sudo apt install libsdl2-dev
+    sudo apt install libsdl2-image-dev
+    sudo apt install libsdl2-mixer-dev
+    sudo apt install libsdl2-ttf-dev
+    sudo apt install libsdl2-net-dev
+    echo "\n"
+else
+    echo "\n\n------------------------------ "ATTENTION!!! ------------------------------"
+    echo "SDL packages must be manually installed!\nAuto-installation hasn\'t been setup for this distro!"
+    echo "------------------------------ "ATTENTION!!! ------------------------------\n\n"
+fi
+
+#################################
 #  Emacs related software  /start
 #################################
 
 
 if [[ $distro == "ubuntu" ]]; then
-    echo "\n------------------------------ "ATTENTION!!! ------------------------------"
+    echo "\n\n------------------------------ "ATTENTION!!! ------------------------------"
     echo "Instead of grabbing Emacs from Ubuntu repo, download it manually."
-    echo "------------------------------ "ATTENTION!!! ------------------------------\n"
+    echo "------------------------------ "ATTENTION!!! ------------------------------\n\n"
     echo "Attempting to install required tools for creating Emacs application..."
 
+    # These are used for building Emacs
     sudo apt install build-essential
     sudo apt install texinfo
     sudo apt install libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev
