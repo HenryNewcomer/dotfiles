@@ -302,7 +302,16 @@ if [[ $distro == "ubuntu" ]]; then
     echo "------------------------------ "ATTENTION!!! ------------------------------\n"
     echo "Attempting to install required tools for creating Emacs application..."
 
-    sudo apt-get install build-essential texinfo libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev libgtk2.0-dev libncurses-dev libxpm-dev automake autoconf gnutils-dev mailutils
+    sudo apt install build-essential
+    sudo apt install texinfo
+    sudo apt install libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev
+    sudo apt install libgtk2.0-dev
+    sudo apt install libncurses-dev
+    sudo apt install libxpm-dev
+    sudo apt install automake
+    sudo apt install autoconf
+    sudo apt install gnutils-dev
+    sudo apt install mailutils
 else
     installer emacs
 fi
