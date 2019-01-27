@@ -310,7 +310,7 @@ if [[ $distro == "ubuntu" ]]; then
     sudo apt install libxpm-dev
     sudo apt install automake
     sudo apt install autoconf
-    sudo apt install gnutils-dev
+    sudo apt install gnutls-dev
     sudo apt install mailutils
 else
     installer emacs
