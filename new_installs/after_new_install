@@ -343,11 +343,21 @@ git clone https://github.com/HenryNewcomer/.emacs.d.git .emacs.d
 ln -s .emacs.d/.emacs .emacs
 cd ~/Downloads
 
+installer offlineimap
+
 # These are required for the Flycheck plugin
 #sudo pip install pylint
 #sudo npm install eslint
 
 # Better search (also used within Emacs)
+if [[ $distro == "ubuntu" ]]; then
+    installer the_silver_searcher
+elif [[ $distro == "arch" ]]; then
+    installer the-silver-searcher
+else
+    echo "\n\n*** Manual installation of The Silver Searcher (ag) required ***\n\n"
+fi
+
 installer ripgrep
 
 # Install (Universal) C-Tags
@@ -381,7 +391,7 @@ sudo make install
 
 # If using Arch, install Yaourt
 if [[ $distro == "arch" ]]; then
-  yaourtInstall
+    yaourtInstall
 fi
 
 ###############################################
