@@ -276,8 +276,15 @@ installer ttf-inconsolata
 installer ttf-linux-libertine
 installer ttf-ubuntu-family
 installer noto-fonts
+
+# Powerline fonts (ZSH themes use these)
 #installer fonts-powerline
 #installer powerline-fonts
+git clone https://github.com/powerline/fonts.git --depth=1
+cd fonts
+./install.sh
+cd ..
+rm -rf fonts
 
 if [[ $distro == "ubuntu" ]]; then
     echo "\nInstalling \"Hack\" font from repo."
