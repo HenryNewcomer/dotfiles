@@ -1,6 +1,6 @@
 export ZSH=/home/henry/.oh-my-zsh
 ZSH_THEME="agnoster"
-export UPDATE_ZSH_DAYS=2
+export UPDATE_ZSH_DAYS=7
 DISABLE_UPDATE_PROMPT=true
 COMPLETION_WAITING_DOTS="true"
 
