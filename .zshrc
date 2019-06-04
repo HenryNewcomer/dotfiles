@@ -1,8 +1,21 @@
 export ZSH=/home/henry/.oh-my-zsh
-ZSH_THEME="agnoster"
 export UPDATE_ZSH_DAYS=7
 DISABLE_UPDATE_PROMPT=true
 COMPLETION_WAITING_DOTS="true"
+
+#ZSH_THEME="agnoster"
+ZSH_THEME="pure"
+if grep -q Microsoft /proc/version; then
+    ZSH_THEME="robbyrussel"
+    echo "Ubuntu on Windows"
+else
+    ZSH_THEME="pure"
+    echo "native Linux"
+fi
+# Fallback
+if [ 'tput colors' != "256"]; then
+    ZSH_THEME="robbyrussell"
+fi
 
 plugins=(
     git
