@@ -278,7 +278,9 @@ installer ttf-ubuntu-family
 installer noto-fonts
 
 # Powerline fonts (ZSH themes use these)
-#installer fonts-powerline
+if [[ $distro == "ubuntu" ]]; then
+    installer fonts-powerline
+fi
 #installer powerline-fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
