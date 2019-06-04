@@ -7,53 +7,57 @@
 files=( "bin/i3lockblur" \
   ".config/i3status/config" ".config/compton.conf" \
   ".i3/config" ".gitconfig" ".vimrc" ".xinitrc" \
-  ".xmodmap" ".zprofile" ".zshrc" )
+  ".xmodmap" ".zprezto/runcoms/zshrc" ".zpreztorc" \
+  ".zsh/themes/.purepower" )
 # An array of directories to create
-dirs_to_create=( "bin" ".config" ".config/termite" ".fonts" ".i3" )
+dirs_to_create=( "bin" ".config" ".config/termite" ".fonts" ".i3" \
+  ".zprezto" ".zprezto/runcoms" ".zsh" ".zsh/themes/" )
 
 MAIN_DOTFILES=$(dirname `pwd`)
 OLD_DOTFILES="${HOME}/.dotfiles_old"
 
 # Make a central backup directory
 if [[ -d "${OLD_DOTFILES}" ]]; then
-  echo "Entering $OLD_DOTFILES directory. Existing backups will be overwritten."
+    echo "Entering $OLD_DOTFILES directory. Existing backups will be overwritten."
 else
-  echo "Creating $OLD_DOTFILES for backup of any existing dotfiles."
-  mkdir -p $OLD_DOTFILES
+    echo "Creating $OLD_DOTFILES for backup of any existing dotfiles."
+    mkdir -p $OLD_DOTFILES
 fi
 
 if [[ ! -d "${OLD_DOTFILES}" ]]; then
-  echo "Could not create $OLD_DOTFILES -- Script was aborted!"
-  exit 1
+    echo "Could not create $OLD_DOTFILES -- Script was aborted!"
+    exit 1
 fi
 
 # Create proper directories
 for folder in "${dirs_to_create[@]}"; do
-  if [[ ! -d "${HOME}/${folder}" ]]; then
-    cd $HOME
-    echo "Making new ${folder} directory inside of ${HOME}"
-    mkdir -p "${folder}"
-  else
-    echo "${HOME}/${folder} already exists - skipped directory creation."
-  fi
+    if [[ ! -d "${HOME}/${folder}" ]]; then
+        cd $HOME
+        echo "Making new ${folder} directory inside of ${HOME}"
+        mkdir -p "${folder}"
+    else
+        echo "${HOME}/${folder} already exists - skipped directory creation."
+    fi
 
-  echo "Making potential subdirectories within ${OLD_DOTFILES}"
-  mkdir -p "${OLD_DOTFILES}/${folder}"
+    echo "Making potential subdirectories within ${OLD_DOTFILES}"
+    mkdir -p "${OLD_DOTFILES}/${folder}"
 done
 
+# Extra symbolic links
+ln -s "${MAIN_DOTFILES}/.zprezto/runcoms/zshrc" "${HOME}/.zshrc"
 
 cd $MAIN_DOTFILES
 
 echo "Moving existing dotfiles to $OLD_DOTFILES"
 
 for file in "${files[@]}"; do
-  # Only backup files if they exist and are either symbolic links,
-  # or basic files
-  if [[ -h "${HOME}/${file}" || -e "${HOME}/${file}" ]]; then
-    mv -f "${HOME}/${file}" "${OLD_DOTFILES}/${file}"
-  fi
-  echo "Creating symlink to ${file} in home directory."
-  ln -s "${MAIN_DOTFILES}/${file}" "${HOME}/${file}"
+    # Only backup files if they exist and are either symbolic links,
+    # or basic files
+    if [[ -h "${HOME}/${file}" || -e "${HOME}/${file}" ]]; then
+        mv -f "${HOME}/${file}" "${OLD_DOTFILES}/${file}"
+    fi
+    echo "Creating symlink to ${file} in home directory."
+    ln -s "${MAIN_DOTFILES}/${file}" "${HOME}/${file}"
 done
 
 echo "Copying fonts"
