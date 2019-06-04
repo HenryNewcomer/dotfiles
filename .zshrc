@@ -4,17 +4,13 @@ DISABLE_UPDATE_PROMPT=true
 COMPLETION_WAITING_DOTS="true"
 
 #ZSH_THEME="agnoster"
-ZSH_THEME="pure"
+#ZSH_THEME="pure"
 if grep -q Microsoft /proc/version; then
-    ZSH_THEME="robbyrussel"
+    ZSH_THEME="gentoo"
     echo "Ubuntu on Windows"
 else
     ZSH_THEME="pure"
-    echo "native Linux"
-fi
-# Fallback
-if [ 'tput colors' != "256" ]; then
-    ZSH_THEME="robbyrussell"
+    echo "Native Linux"
 fi
 
 plugins=(
