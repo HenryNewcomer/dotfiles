@@ -13,7 +13,7 @@ else
     echo "native Linux"
 fi
 # Fallback
-if [ 'tput colors' != "256"]; then
+if [ 'tput colors' != "256" ]; then
     ZSH_THEME="robbyrussell"
 fi
 
