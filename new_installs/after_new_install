@@ -204,10 +204,11 @@ chsh -s $(which zsh)
 # Setup ZSH Prezto
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 # Adds the ZSH config files for Prezto
-setopt EXTENDED_GLOB
-for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
-    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
-done
+# FIXME Claims parenth are erroneous; manually entering commands works, however =\
+#setopt EXTENDED_GLOB
+#for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+#    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+#done
 
 ##################
 ### TERMINALS (end)
