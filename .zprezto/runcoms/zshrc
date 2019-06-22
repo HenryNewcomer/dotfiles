@@ -16,3 +16,9 @@ source ~/.zsh/themes/.purepower
 # My custom aliases
 alias cmaked='cmake -DCMAKE_BUILD_TYPE=DEBUG ..'
 alias cmakem='cmake .. && make'
+
+# Command completion
+autoload -U compinit
+compinit
+
+# eof
