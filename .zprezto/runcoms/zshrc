@@ -10,6 +10,9 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-# Customize to your needs...
-
+# Theme (via Prezto)
 source ~/.zsh/themes/.purepower
+
+# My custom aliases
+alias cmaked='cmake -DCMAKE_BUILD_TYPE=DEBUG ..'
+alias cmakem='cmake .. && make'
