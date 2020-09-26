@@ -185,13 +185,13 @@ installer git
 # NodeJS
 installer nodejs
 # Update npm (which is separate from nodejs)
-sudo npm install npm@latest -g
+yes | sudo npm install npm@latest -g
 #curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
 #sudo apt-get install -y nodejs
 # NPM
 installer npm # Required for vtop
 # Just in case, double-check that npm is using the newest version
-sudo npm install -g npm
+yes | sudo npm install -g npm
 
 ##################
 ### TERMINALS (start)
@@ -238,7 +238,7 @@ installer thunderbird
 
 # Extra software
 installer filezilla
-sudo npm install -g vtop
+yes | sudo npm install -g vtop
 installer htop
 # A simplistic color picker
 installer gcolor3
@@ -251,9 +251,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 # Zsh Autosuggestions (based on history)
-git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+yes | git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 # Zsh Syntax Highlighting
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+yes | git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
 
 # i3wm
 installer i3
@@ -292,14 +292,14 @@ fi
 #installer powerline-fonts
 git clone https://github.com/powerline/fonts.git --depth=1
 cd fonts
-./install.sh
+yes | ./install.sh
 cd ..
 rm -rf fonts
 
 if [[ $distro == "ubuntu" ]]; then
     echo "\nInstalling \"Hack\" font from repo."
-    sudo apt install fonts-hack
-    sudo apt install fonts-hack-ttf
+    yes | sudo apt install fonts-hack
+    yes | sudo apt install fonts-hack-ttf
     echo "\n"
 fi
 
@@ -316,11 +316,11 @@ fi
 if [[ $distro == "ubuntu" ]]; then
     echo "-- Installing SDL2 packages: --\n\n"
 
-    sudo apt install libsdl2-dev
-    sudo apt install libsdl2-image-dev
-    sudo apt install libsdl2-mixer-dev
-    sudo apt install libsdl2-ttf-dev
-    sudo apt install libsdl2-net-dev
+    yes | sudo apt install libsdl2-dev
+    yes | sudo apt install libsdl2-image-dev
+    yes | sudo apt install libsdl2-mixer-dev
+    yes | sudo apt install libsdl2-ttf-dev
+    yes | sudo apt install libsdl2-net-dev
     echo "\n"
 else
     echo "\n\n------------------------------ "ATTENTION!!! ------------------------------"
@@ -340,16 +340,16 @@ if [[ $distro == "ubuntu" ]]; then
     echo "Attempting to install required tools for creating Emacs application..."
 
     # These are used for building Emacs
-    sudo apt install build-essential
-    sudo apt install texinfo
-    sudo apt install libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev
-    sudo apt install libgtk2.0-dev
-    sudo apt install libncurses-dev
-    sudo apt install libxpm-dev
-    sudo apt install automake
-    sudo apt install autoconf
-    sudo apt install gnutls-dev
-    sudo apt install mailutils
+    yes | sudo apt install build-essential
+    yes | sudo apt install texinfo
+    yes | sudo apt install libx11-dev libxpm-dev libjpeg-dev libpng-dev libgif-dev libtiff-dev
+    yes | sudo apt install libgtk2.0-dev
+    yes | sudo apt install libncurses-dev
+    yes | sudo apt install libxpm-dev
+    yes | sudo apt install automake
+    yes | sudo apt install autoconf
+    yes | sudo apt install gnutls-dev
+    yes | sudo apt install mailutils
 else
     installer emacs
 fi
@@ -380,10 +380,10 @@ installer ripgrep
 # Install (Universal) C-Tags
 git clone https://github.com/universal-ctags/ctags
 cd ctags
-./autogen.sh
-./configure
-make
-sudo make install
+yes | ./autogen.sh
+yes | ./configure
+yes | make
+yes | sudo make install
 
 # Install Snap if on Arch distro
 # Source: https://docs.snapcraft.io/installing-snap-on-arch-linux/6758
@@ -408,7 +408,7 @@ sudo make install
 
 # If using Arch, install Yaourt
 if [[ $distro == "arch" ]]; then
-    yaourtInstall
+    yes | yaourtInstall
 fi
 
 ###############################################
@@ -419,8 +419,8 @@ fi
 cleaner
 
 # Enable the service for the system time
-systemctl enable ntpd.service
-systemctl start ntpd.service
+yes | systemctl enable ntpd.service
+yes | systemctl start ntpd.service
 
 #############################################################################
 # EoF
