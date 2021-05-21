@@ -237,6 +237,11 @@ installer gcolor3
 # SSH packages
 installer ssh
 
+# Store credentials
+if [[ $distro == "ubuntu" ]]; then
+    yes | sudo apt install gnome-keyring
+fi
+
 # FZF
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
